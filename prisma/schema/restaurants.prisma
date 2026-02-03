@@ -1,0 +1,56 @@
+// restaurant model
+model Restaurants {
+  id          String @id @unique @default(uuid())
+  name        String
+  description String
+  address     String
+  phone       String
+  ownerId     String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  menu Menus?
+  order Orders[]
+  reviews Reviews[]
+
+  user User @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  
+}
+
+
+model Menus {
+  id String @id @unique @default(uuid())
+  restaurantId String @unique
+  title String
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  menu_items Menu_items[]
+
+  restaurant Restaurants @relation(fields: [restaurantId], references: [id],onDelete: Cascade)
+
+
+  
+}
+
+model Menu_items {
+  id String @id @unique @default(uuid())
+  menuid String
+  name String
+  description String
+  price Int
+  imageUrl String
+  available Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  order Order_items[]
+  reviews Reviews[]
+
+  menus Menus @relation(fields: [menuid], references: [id], onDelete: Cascade)
+
+  
+}
