@@ -1,18 +1,25 @@
-// user model
+enum Roles {
+  Customer
+  Seller
+  Admin
+}
+
 model User {
-  id            String    @id 
+  id            String    @id
   name          String
-  email         String 
+  email         String
   emailVerified Boolean   @default(false)
   image         String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-
+  roles         Roles    @default(Customer)
+  phoneNumber   String?
+  address       String
   sessions      Session[]
   accounts      Account[]
-  restaurants Restaurants?
-  orders Orders[]
-  reviews Reviews[]
+  restaurant  Restaurants?
+  order Orders[]
+  review Reviews[]
 
   @@unique([email])
   @@map("user")
