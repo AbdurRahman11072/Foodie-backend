@@ -3,7 +3,7 @@ import cors from "cors";
 import express, { Application } from "express";
 import config from "./config";
 import { auth } from "./lib/auth";
-import globalErrorHandler from "./middleware/globalErrorHandler";
+import routes from "./routes";
 const app: Application = express();
 
 app.use(
@@ -16,6 +16,8 @@ app.use(
 app.all("/api/auth/*splat", toNodeHandler(auth));
 app.use(express.json());
 
-app.use(globalErrorHandler);
+app.use("/api/v1", routes);
+
+// app.use(globalErrorHandler);
 
 export default app;
