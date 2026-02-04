@@ -18,6 +18,36 @@ export { Prisma }
 export * as $Enums from './enums'
 export * from './enums';
 /**
+ * Model Orders
+ * 
+ */
+export type Orders = Prisma.OrdersModel
+/**
+ * Model Order_items
+ * 
+ */
+export type Order_items = Prisma.Order_itemsModel
+/**
+ * Model Restaurants
+ * 
+ */
+export type Restaurants = Prisma.RestaurantsModel
+/**
+ * Model Menus
+ * 
+ */
+export type Menus = Prisma.MenusModel
+/**
+ * Model Menu_items
+ * 
+ */
+export type Menu_items = Prisma.Menu_itemsModel
+/**
+ * Model Reviews
+ * 
+ */
+export type Reviews = Prisma.ReviewsModel
+/**
  * Model User
  * 
  */
@@ -37,33 +67,3 @@ export type Account = Prisma.AccountModel
  * 
  */
 export type Verification = Prisma.VerificationModel
-/**
- * Model Restaurants
- * 
- */
-export type Restaurants = Prisma.RestaurantsModel
-/**
- * Model Menus
- * 
- */
-export type Menus = Prisma.MenusModel
-/**
- * Model Menu_items
- * 
- */
-export type Menu_items = Prisma.Menu_itemsModel
-/**
- * Model Orders
- * 
- */
-export type Orders = Prisma.OrdersModel
-/**
- * Model Order_items
- * 
- */
-export type Order_items = Prisma.Order_itemsModel
-/**
- * Model Reviews
- * 
- */
-export type Reviews = Prisma.ReviewsModel

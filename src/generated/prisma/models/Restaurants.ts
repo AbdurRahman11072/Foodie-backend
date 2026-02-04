@@ -284,7 +284,7 @@ export type RestaurantsCreateInput = {
   menu?: Prisma.MenusCreateNestedOneWithoutRestaurantInput
   order?: Prisma.OrdersCreateNestedManyWithoutRestaurantInput
   reviews?: Prisma.ReviewsCreateNestedManyWithoutRestaurantInput
-  user: Prisma.UserCreateNestedOneWithoutRestaurantsInput
+  user: Prisma.UserCreateNestedOneWithoutRestaurantInput
 }
 
 export type RestaurantsUncheckedCreateInput = {
@@ -312,7 +312,7 @@ export type RestaurantsUpdateInput = {
   menu?: Prisma.MenusUpdateOneWithoutRestaurantNestedInput
   order?: Prisma.OrdersUpdateManyWithoutRestaurantNestedInput
   reviews?: Prisma.ReviewsUpdateManyWithoutRestaurantNestedInput
-  user?: Prisma.UserUpdateOneRequiredWithoutRestaurantsNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutRestaurantNestedInput
 }
 
 export type RestaurantsUncheckedUpdateInput = {
@@ -361,9 +361,9 @@ export type RestaurantsUncheckedUpdateManyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type RestaurantsNullableScalarRelationFilter = {
-  is?: Prisma.RestaurantsWhereInput | null
-  isNot?: Prisma.RestaurantsWhereInput | null
+export type RestaurantsScalarRelationFilter = {
+  is?: Prisma.RestaurantsWhereInput
+  isNot?: Prisma.RestaurantsWhereInput
 }
 
 export type RestaurantsCountOrderByAggregateInput = {
@@ -399,9 +399,51 @@ export type RestaurantsMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
-export type RestaurantsScalarRelationFilter = {
-  is?: Prisma.RestaurantsWhereInput
-  isNot?: Prisma.RestaurantsWhereInput
+export type RestaurantsNullableScalarRelationFilter = {
+  is?: Prisma.RestaurantsWhereInput | null
+  isNot?: Prisma.RestaurantsWhereInput | null
+}
+
+export type RestaurantsCreateNestedOneWithoutOrderInput = {
+  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutOrderInput, Prisma.RestaurantsUncheckedCreateWithoutOrderInput>
+  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutOrderInput
+  connect?: Prisma.RestaurantsWhereUniqueInput
+}
+
+export type RestaurantsUpdateOneRequiredWithoutOrderNestedInput = {
+  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutOrderInput, Prisma.RestaurantsUncheckedCreateWithoutOrderInput>
+  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutOrderInput
+  upsert?: Prisma.RestaurantsUpsertWithoutOrderInput
+  connect?: Prisma.RestaurantsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.RestaurantsUpdateToOneWithWhereWithoutOrderInput, Prisma.RestaurantsUpdateWithoutOrderInput>, Prisma.RestaurantsUncheckedUpdateWithoutOrderInput>
+}
+
+export type RestaurantsCreateNestedOneWithoutMenuInput = {
+  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutMenuInput, Prisma.RestaurantsUncheckedCreateWithoutMenuInput>
+  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutMenuInput
+  connect?: Prisma.RestaurantsWhereUniqueInput
+}
+
+export type RestaurantsUpdateOneRequiredWithoutMenuNestedInput = {
+  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutMenuInput, Prisma.RestaurantsUncheckedCreateWithoutMenuInput>
+  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutMenuInput
+  upsert?: Prisma.RestaurantsUpsertWithoutMenuInput
+  connect?: Prisma.RestaurantsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.RestaurantsUpdateToOneWithWhereWithoutMenuInput, Prisma.RestaurantsUpdateWithoutMenuInput>, Prisma.RestaurantsUncheckedUpdateWithoutMenuInput>
+}
+
+export type RestaurantsCreateNestedOneWithoutReviewsInput = {
+  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutReviewsInput, Prisma.RestaurantsUncheckedCreateWithoutReviewsInput>
+  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutReviewsInput
+  connect?: Prisma.RestaurantsWhereUniqueInput
+}
+
+export type RestaurantsUpdateOneRequiredWithoutReviewsNestedInput = {
+  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutReviewsInput, Prisma.RestaurantsUncheckedCreateWithoutReviewsInput>
+  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutReviewsInput
+  upsert?: Prisma.RestaurantsUpsertWithoutReviewsInput
+  connect?: Prisma.RestaurantsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.RestaurantsUpdateToOneWithWhereWithoutReviewsInput, Prisma.RestaurantsUpdateWithoutReviewsInput>, Prisma.RestaurantsUncheckedUpdateWithoutReviewsInput>
 }
 
 export type RestaurantsCreateNestedOneWithoutUserInput = {
@@ -436,46 +478,208 @@ export type RestaurantsUncheckedUpdateOneWithoutUserNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.RestaurantsUpdateToOneWithWhereWithoutUserInput, Prisma.RestaurantsUpdateWithoutUserInput>, Prisma.RestaurantsUncheckedUpdateWithoutUserInput>
 }
 
-export type RestaurantsCreateNestedOneWithoutMenuInput = {
-  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutMenuInput, Prisma.RestaurantsUncheckedCreateWithoutMenuInput>
-  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutMenuInput
-  connect?: Prisma.RestaurantsWhereUniqueInput
+export type RestaurantsCreateWithoutOrderInput = {
+  id?: string
+  name: string
+  description: string
+  address: string
+  phone: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  menu?: Prisma.MenusCreateNestedOneWithoutRestaurantInput
+  reviews?: Prisma.ReviewsCreateNestedManyWithoutRestaurantInput
+  user: Prisma.UserCreateNestedOneWithoutRestaurantInput
 }
 
-export type RestaurantsUpdateOneRequiredWithoutMenuNestedInput = {
-  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutMenuInput, Prisma.RestaurantsUncheckedCreateWithoutMenuInput>
-  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutMenuInput
-  upsert?: Prisma.RestaurantsUpsertWithoutMenuInput
-  connect?: Prisma.RestaurantsWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.RestaurantsUpdateToOneWithWhereWithoutMenuInput, Prisma.RestaurantsUpdateWithoutMenuInput>, Prisma.RestaurantsUncheckedUpdateWithoutMenuInput>
+export type RestaurantsUncheckedCreateWithoutOrderInput = {
+  id?: string
+  name: string
+  description: string
+  address: string
+  phone: string
+  ownerId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  menu?: Prisma.MenusUncheckedCreateNestedOneWithoutRestaurantInput
+  reviews?: Prisma.ReviewsUncheckedCreateNestedManyWithoutRestaurantInput
 }
 
-export type RestaurantsCreateNestedOneWithoutOrderInput = {
-  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutOrderInput, Prisma.RestaurantsUncheckedCreateWithoutOrderInput>
-  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutOrderInput
-  connect?: Prisma.RestaurantsWhereUniqueInput
+export type RestaurantsCreateOrConnectWithoutOrderInput = {
+  where: Prisma.RestaurantsWhereUniqueInput
+  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutOrderInput, Prisma.RestaurantsUncheckedCreateWithoutOrderInput>
 }
 
-export type RestaurantsUpdateOneRequiredWithoutOrderNestedInput = {
-  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutOrderInput, Prisma.RestaurantsUncheckedCreateWithoutOrderInput>
-  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutOrderInput
-  upsert?: Prisma.RestaurantsUpsertWithoutOrderInput
-  connect?: Prisma.RestaurantsWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.RestaurantsUpdateToOneWithWhereWithoutOrderInput, Prisma.RestaurantsUpdateWithoutOrderInput>, Prisma.RestaurantsUncheckedUpdateWithoutOrderInput>
+export type RestaurantsUpsertWithoutOrderInput = {
+  update: Prisma.XOR<Prisma.RestaurantsUpdateWithoutOrderInput, Prisma.RestaurantsUncheckedUpdateWithoutOrderInput>
+  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutOrderInput, Prisma.RestaurantsUncheckedCreateWithoutOrderInput>
+  where?: Prisma.RestaurantsWhereInput
 }
 
-export type RestaurantsCreateNestedOneWithoutReviewsInput = {
-  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutReviewsInput, Prisma.RestaurantsUncheckedCreateWithoutReviewsInput>
-  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutReviewsInput
-  connect?: Prisma.RestaurantsWhereUniqueInput
+export type RestaurantsUpdateToOneWithWhereWithoutOrderInput = {
+  where?: Prisma.RestaurantsWhereInput
+  data: Prisma.XOR<Prisma.RestaurantsUpdateWithoutOrderInput, Prisma.RestaurantsUncheckedUpdateWithoutOrderInput>
 }
 
-export type RestaurantsUpdateOneRequiredWithoutReviewsNestedInput = {
-  create?: Prisma.XOR<Prisma.RestaurantsCreateWithoutReviewsInput, Prisma.RestaurantsUncheckedCreateWithoutReviewsInput>
-  connectOrCreate?: Prisma.RestaurantsCreateOrConnectWithoutReviewsInput
-  upsert?: Prisma.RestaurantsUpsertWithoutReviewsInput
-  connect?: Prisma.RestaurantsWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.RestaurantsUpdateToOneWithWhereWithoutReviewsInput, Prisma.RestaurantsUpdateWithoutReviewsInput>, Prisma.RestaurantsUncheckedUpdateWithoutReviewsInput>
+export type RestaurantsUpdateWithoutOrderInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  menu?: Prisma.MenusUpdateOneWithoutRestaurantNestedInput
+  reviews?: Prisma.ReviewsUpdateManyWithoutRestaurantNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutRestaurantNestedInput
+}
+
+export type RestaurantsUncheckedUpdateWithoutOrderInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  menu?: Prisma.MenusUncheckedUpdateOneWithoutRestaurantNestedInput
+  reviews?: Prisma.ReviewsUncheckedUpdateManyWithoutRestaurantNestedInput
+}
+
+export type RestaurantsCreateWithoutMenuInput = {
+  id?: string
+  name: string
+  description: string
+  address: string
+  phone: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  order?: Prisma.OrdersCreateNestedManyWithoutRestaurantInput
+  reviews?: Prisma.ReviewsCreateNestedManyWithoutRestaurantInput
+  user: Prisma.UserCreateNestedOneWithoutRestaurantInput
+}
+
+export type RestaurantsUncheckedCreateWithoutMenuInput = {
+  id?: string
+  name: string
+  description: string
+  address: string
+  phone: string
+  ownerId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  order?: Prisma.OrdersUncheckedCreateNestedManyWithoutRestaurantInput
+  reviews?: Prisma.ReviewsUncheckedCreateNestedManyWithoutRestaurantInput
+}
+
+export type RestaurantsCreateOrConnectWithoutMenuInput = {
+  where: Prisma.RestaurantsWhereUniqueInput
+  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutMenuInput, Prisma.RestaurantsUncheckedCreateWithoutMenuInput>
+}
+
+export type RestaurantsUpsertWithoutMenuInput = {
+  update: Prisma.XOR<Prisma.RestaurantsUpdateWithoutMenuInput, Prisma.RestaurantsUncheckedUpdateWithoutMenuInput>
+  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutMenuInput, Prisma.RestaurantsUncheckedCreateWithoutMenuInput>
+  where?: Prisma.RestaurantsWhereInput
+}
+
+export type RestaurantsUpdateToOneWithWhereWithoutMenuInput = {
+  where?: Prisma.RestaurantsWhereInput
+  data: Prisma.XOR<Prisma.RestaurantsUpdateWithoutMenuInput, Prisma.RestaurantsUncheckedUpdateWithoutMenuInput>
+}
+
+export type RestaurantsUpdateWithoutMenuInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  order?: Prisma.OrdersUpdateManyWithoutRestaurantNestedInput
+  reviews?: Prisma.ReviewsUpdateManyWithoutRestaurantNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutRestaurantNestedInput
+}
+
+export type RestaurantsUncheckedUpdateWithoutMenuInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  order?: Prisma.OrdersUncheckedUpdateManyWithoutRestaurantNestedInput
+  reviews?: Prisma.ReviewsUncheckedUpdateManyWithoutRestaurantNestedInput
+}
+
+export type RestaurantsCreateWithoutReviewsInput = {
+  id?: string
+  name: string
+  description: string
+  address: string
+  phone: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  menu?: Prisma.MenusCreateNestedOneWithoutRestaurantInput
+  order?: Prisma.OrdersCreateNestedManyWithoutRestaurantInput
+  user: Prisma.UserCreateNestedOneWithoutRestaurantInput
+}
+
+export type RestaurantsUncheckedCreateWithoutReviewsInput = {
+  id?: string
+  name: string
+  description: string
+  address: string
+  phone: string
+  ownerId: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  menu?: Prisma.MenusUncheckedCreateNestedOneWithoutRestaurantInput
+  order?: Prisma.OrdersUncheckedCreateNestedManyWithoutRestaurantInput
+}
+
+export type RestaurantsCreateOrConnectWithoutReviewsInput = {
+  where: Prisma.RestaurantsWhereUniqueInput
+  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutReviewsInput, Prisma.RestaurantsUncheckedCreateWithoutReviewsInput>
+}
+
+export type RestaurantsUpsertWithoutReviewsInput = {
+  update: Prisma.XOR<Prisma.RestaurantsUpdateWithoutReviewsInput, Prisma.RestaurantsUncheckedUpdateWithoutReviewsInput>
+  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutReviewsInput, Prisma.RestaurantsUncheckedCreateWithoutReviewsInput>
+  where?: Prisma.RestaurantsWhereInput
+}
+
+export type RestaurantsUpdateToOneWithWhereWithoutReviewsInput = {
+  where?: Prisma.RestaurantsWhereInput
+  data: Prisma.XOR<Prisma.RestaurantsUpdateWithoutReviewsInput, Prisma.RestaurantsUncheckedUpdateWithoutReviewsInput>
+}
+
+export type RestaurantsUpdateWithoutReviewsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  menu?: Prisma.MenusUpdateOneWithoutRestaurantNestedInput
+  order?: Prisma.OrdersUpdateManyWithoutRestaurantNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutRestaurantNestedInput
+}
+
+export type RestaurantsUncheckedUpdateWithoutReviewsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  menu?: Prisma.MenusUncheckedUpdateOneWithoutRestaurantNestedInput
+  order?: Prisma.OrdersUncheckedUpdateManyWithoutRestaurantNestedInput
 }
 
 export type RestaurantsCreateWithoutUserInput = {
@@ -544,210 +748,6 @@ export type RestaurantsUncheckedUpdateWithoutUserInput = {
   menu?: Prisma.MenusUncheckedUpdateOneWithoutRestaurantNestedInput
   order?: Prisma.OrdersUncheckedUpdateManyWithoutRestaurantNestedInput
   reviews?: Prisma.ReviewsUncheckedUpdateManyWithoutRestaurantNestedInput
-}
-
-export type RestaurantsCreateWithoutMenuInput = {
-  id?: string
-  name: string
-  description: string
-  address: string
-  phone: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  order?: Prisma.OrdersCreateNestedManyWithoutRestaurantInput
-  reviews?: Prisma.ReviewsCreateNestedManyWithoutRestaurantInput
-  user: Prisma.UserCreateNestedOneWithoutRestaurantsInput
-}
-
-export type RestaurantsUncheckedCreateWithoutMenuInput = {
-  id?: string
-  name: string
-  description: string
-  address: string
-  phone: string
-  ownerId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  order?: Prisma.OrdersUncheckedCreateNestedManyWithoutRestaurantInput
-  reviews?: Prisma.ReviewsUncheckedCreateNestedManyWithoutRestaurantInput
-}
-
-export type RestaurantsCreateOrConnectWithoutMenuInput = {
-  where: Prisma.RestaurantsWhereUniqueInput
-  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutMenuInput, Prisma.RestaurantsUncheckedCreateWithoutMenuInput>
-}
-
-export type RestaurantsUpsertWithoutMenuInput = {
-  update: Prisma.XOR<Prisma.RestaurantsUpdateWithoutMenuInput, Prisma.RestaurantsUncheckedUpdateWithoutMenuInput>
-  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutMenuInput, Prisma.RestaurantsUncheckedCreateWithoutMenuInput>
-  where?: Prisma.RestaurantsWhereInput
-}
-
-export type RestaurantsUpdateToOneWithWhereWithoutMenuInput = {
-  where?: Prisma.RestaurantsWhereInput
-  data: Prisma.XOR<Prisma.RestaurantsUpdateWithoutMenuInput, Prisma.RestaurantsUncheckedUpdateWithoutMenuInput>
-}
-
-export type RestaurantsUpdateWithoutMenuInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  description?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  phone?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  order?: Prisma.OrdersUpdateManyWithoutRestaurantNestedInput
-  reviews?: Prisma.ReviewsUpdateManyWithoutRestaurantNestedInput
-  user?: Prisma.UserUpdateOneRequiredWithoutRestaurantsNestedInput
-}
-
-export type RestaurantsUncheckedUpdateWithoutMenuInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  description?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  phone?: Prisma.StringFieldUpdateOperationsInput | string
-  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  order?: Prisma.OrdersUncheckedUpdateManyWithoutRestaurantNestedInput
-  reviews?: Prisma.ReviewsUncheckedUpdateManyWithoutRestaurantNestedInput
-}
-
-export type RestaurantsCreateWithoutOrderInput = {
-  id?: string
-  name: string
-  description: string
-  address: string
-  phone: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  menu?: Prisma.MenusCreateNestedOneWithoutRestaurantInput
-  reviews?: Prisma.ReviewsCreateNestedManyWithoutRestaurantInput
-  user: Prisma.UserCreateNestedOneWithoutRestaurantsInput
-}
-
-export type RestaurantsUncheckedCreateWithoutOrderInput = {
-  id?: string
-  name: string
-  description: string
-  address: string
-  phone: string
-  ownerId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  menu?: Prisma.MenusUncheckedCreateNestedOneWithoutRestaurantInput
-  reviews?: Prisma.ReviewsUncheckedCreateNestedManyWithoutRestaurantInput
-}
-
-export type RestaurantsCreateOrConnectWithoutOrderInput = {
-  where: Prisma.RestaurantsWhereUniqueInput
-  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutOrderInput, Prisma.RestaurantsUncheckedCreateWithoutOrderInput>
-}
-
-export type RestaurantsUpsertWithoutOrderInput = {
-  update: Prisma.XOR<Prisma.RestaurantsUpdateWithoutOrderInput, Prisma.RestaurantsUncheckedUpdateWithoutOrderInput>
-  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutOrderInput, Prisma.RestaurantsUncheckedCreateWithoutOrderInput>
-  where?: Prisma.RestaurantsWhereInput
-}
-
-export type RestaurantsUpdateToOneWithWhereWithoutOrderInput = {
-  where?: Prisma.RestaurantsWhereInput
-  data: Prisma.XOR<Prisma.RestaurantsUpdateWithoutOrderInput, Prisma.RestaurantsUncheckedUpdateWithoutOrderInput>
-}
-
-export type RestaurantsUpdateWithoutOrderInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  description?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  phone?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  menu?: Prisma.MenusUpdateOneWithoutRestaurantNestedInput
-  reviews?: Prisma.ReviewsUpdateManyWithoutRestaurantNestedInput
-  user?: Prisma.UserUpdateOneRequiredWithoutRestaurantsNestedInput
-}
-
-export type RestaurantsUncheckedUpdateWithoutOrderInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  description?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  phone?: Prisma.StringFieldUpdateOperationsInput | string
-  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  menu?: Prisma.MenusUncheckedUpdateOneWithoutRestaurantNestedInput
-  reviews?: Prisma.ReviewsUncheckedUpdateManyWithoutRestaurantNestedInput
-}
-
-export type RestaurantsCreateWithoutReviewsInput = {
-  id?: string
-  name: string
-  description: string
-  address: string
-  phone: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  menu?: Prisma.MenusCreateNestedOneWithoutRestaurantInput
-  order?: Prisma.OrdersCreateNestedManyWithoutRestaurantInput
-  user: Prisma.UserCreateNestedOneWithoutRestaurantsInput
-}
-
-export type RestaurantsUncheckedCreateWithoutReviewsInput = {
-  id?: string
-  name: string
-  description: string
-  address: string
-  phone: string
-  ownerId: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  menu?: Prisma.MenusUncheckedCreateNestedOneWithoutRestaurantInput
-  order?: Prisma.OrdersUncheckedCreateNestedManyWithoutRestaurantInput
-}
-
-export type RestaurantsCreateOrConnectWithoutReviewsInput = {
-  where: Prisma.RestaurantsWhereUniqueInput
-  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutReviewsInput, Prisma.RestaurantsUncheckedCreateWithoutReviewsInput>
-}
-
-export type RestaurantsUpsertWithoutReviewsInput = {
-  update: Prisma.XOR<Prisma.RestaurantsUpdateWithoutReviewsInput, Prisma.RestaurantsUncheckedUpdateWithoutReviewsInput>
-  create: Prisma.XOR<Prisma.RestaurantsCreateWithoutReviewsInput, Prisma.RestaurantsUncheckedCreateWithoutReviewsInput>
-  where?: Prisma.RestaurantsWhereInput
-}
-
-export type RestaurantsUpdateToOneWithWhereWithoutReviewsInput = {
-  where?: Prisma.RestaurantsWhereInput
-  data: Prisma.XOR<Prisma.RestaurantsUpdateWithoutReviewsInput, Prisma.RestaurantsUncheckedUpdateWithoutReviewsInput>
-}
-
-export type RestaurantsUpdateWithoutReviewsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  description?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  phone?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  menu?: Prisma.MenusUpdateOneWithoutRestaurantNestedInput
-  order?: Prisma.OrdersUpdateManyWithoutRestaurantNestedInput
-  user?: Prisma.UserUpdateOneRequiredWithoutRestaurantsNestedInput
-}
-
-export type RestaurantsUncheckedUpdateWithoutReviewsInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  description?: Prisma.StringFieldUpdateOperationsInput | string
-  address?: Prisma.StringFieldUpdateOperationsInput | string
-  phone?: Prisma.StringFieldUpdateOperationsInput | string
-  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  menu?: Prisma.MenusUncheckedUpdateOneWithoutRestaurantNestedInput
-  order?: Prisma.OrdersUncheckedUpdateManyWithoutRestaurantNestedInput
 }
 
 

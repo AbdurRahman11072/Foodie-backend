@@ -413,48 +413,6 @@ export type Order_itemsSumOrderByAggregateInput = {
   price?: Prisma.SortOrder
 }
 
-export type Order_itemsCreateNestedManyWithoutMenuItemInput = {
-  create?: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput> | Prisma.Order_itemsCreateWithoutMenuItemInput[] | Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput[]
-  connectOrCreate?: Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput | Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput[]
-  createMany?: Prisma.Order_itemsCreateManyMenuItemInputEnvelope
-  connect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
-}
-
-export type Order_itemsUncheckedCreateNestedManyWithoutMenuItemInput = {
-  create?: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput> | Prisma.Order_itemsCreateWithoutMenuItemInput[] | Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput[]
-  connectOrCreate?: Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput | Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput[]
-  createMany?: Prisma.Order_itemsCreateManyMenuItemInputEnvelope
-  connect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
-}
-
-export type Order_itemsUpdateManyWithoutMenuItemNestedInput = {
-  create?: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput> | Prisma.Order_itemsCreateWithoutMenuItemInput[] | Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput[]
-  connectOrCreate?: Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput | Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput[]
-  upsert?: Prisma.Order_itemsUpsertWithWhereUniqueWithoutMenuItemInput | Prisma.Order_itemsUpsertWithWhereUniqueWithoutMenuItemInput[]
-  createMany?: Prisma.Order_itemsCreateManyMenuItemInputEnvelope
-  set?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
-  disconnect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
-  delete?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
-  connect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
-  update?: Prisma.Order_itemsUpdateWithWhereUniqueWithoutMenuItemInput | Prisma.Order_itemsUpdateWithWhereUniqueWithoutMenuItemInput[]
-  updateMany?: Prisma.Order_itemsUpdateManyWithWhereWithoutMenuItemInput | Prisma.Order_itemsUpdateManyWithWhereWithoutMenuItemInput[]
-  deleteMany?: Prisma.Order_itemsScalarWhereInput | Prisma.Order_itemsScalarWhereInput[]
-}
-
-export type Order_itemsUncheckedUpdateManyWithoutMenuItemNestedInput = {
-  create?: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput> | Prisma.Order_itemsCreateWithoutMenuItemInput[] | Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput[]
-  connectOrCreate?: Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput | Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput[]
-  upsert?: Prisma.Order_itemsUpsertWithWhereUniqueWithoutMenuItemInput | Prisma.Order_itemsUpsertWithWhereUniqueWithoutMenuItemInput[]
-  createMany?: Prisma.Order_itemsCreateManyMenuItemInputEnvelope
-  set?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
-  disconnect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
-  delete?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
-  connect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
-  update?: Prisma.Order_itemsUpdateWithWhereUniqueWithoutMenuItemInput | Prisma.Order_itemsUpdateWithWhereUniqueWithoutMenuItemInput[]
-  updateMany?: Prisma.Order_itemsUpdateManyWithWhereWithoutMenuItemInput | Prisma.Order_itemsUpdateManyWithWhereWithoutMenuItemInput[]
-  deleteMany?: Prisma.Order_itemsScalarWhereInput | Prisma.Order_itemsScalarWhereInput[]
-}
-
 export type Order_itemsCreateNestedManyWithoutOrderInput = {
   create?: Prisma.XOR<Prisma.Order_itemsCreateWithoutOrderInput, Prisma.Order_itemsUncheckedCreateWithoutOrderInput> | Prisma.Order_itemsCreateWithoutOrderInput[] | Prisma.Order_itemsUncheckedCreateWithoutOrderInput[]
   connectOrCreate?: Prisma.Order_itemsCreateOrConnectWithoutOrderInput | Prisma.Order_itemsCreateOrConnectWithoutOrderInput[]
@@ -497,61 +455,46 @@ export type Order_itemsUncheckedUpdateManyWithoutOrderNestedInput = {
   deleteMany?: Prisma.Order_itemsScalarWhereInput | Prisma.Order_itemsScalarWhereInput[]
 }
 
-export type Order_itemsCreateWithoutMenuItemInput = {
-  id?: string
-  quantity: number
-  price: number
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  order: Prisma.OrdersCreateNestedOneWithoutOrder_itemInput
+export type Order_itemsCreateNestedManyWithoutMenuItemInput = {
+  create?: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput> | Prisma.Order_itemsCreateWithoutMenuItemInput[] | Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput[]
+  connectOrCreate?: Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput | Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput[]
+  createMany?: Prisma.Order_itemsCreateManyMenuItemInputEnvelope
+  connect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
 }
 
-export type Order_itemsUncheckedCreateWithoutMenuItemInput = {
-  id?: string
-  orderId: string
-  quantity: number
-  price: number
-  createdAt?: Date | string
-  updatedAt?: Date | string
+export type Order_itemsUncheckedCreateNestedManyWithoutMenuItemInput = {
+  create?: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput> | Prisma.Order_itemsCreateWithoutMenuItemInput[] | Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput[]
+  connectOrCreate?: Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput | Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput[]
+  createMany?: Prisma.Order_itemsCreateManyMenuItemInputEnvelope
+  connect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
 }
 
-export type Order_itemsCreateOrConnectWithoutMenuItemInput = {
-  where: Prisma.Order_itemsWhereUniqueInput
-  create: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput>
+export type Order_itemsUpdateManyWithoutMenuItemNestedInput = {
+  create?: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput> | Prisma.Order_itemsCreateWithoutMenuItemInput[] | Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput[]
+  connectOrCreate?: Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput | Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput[]
+  upsert?: Prisma.Order_itemsUpsertWithWhereUniqueWithoutMenuItemInput | Prisma.Order_itemsUpsertWithWhereUniqueWithoutMenuItemInput[]
+  createMany?: Prisma.Order_itemsCreateManyMenuItemInputEnvelope
+  set?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
+  disconnect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
+  delete?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
+  connect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
+  update?: Prisma.Order_itemsUpdateWithWhereUniqueWithoutMenuItemInput | Prisma.Order_itemsUpdateWithWhereUniqueWithoutMenuItemInput[]
+  updateMany?: Prisma.Order_itemsUpdateManyWithWhereWithoutMenuItemInput | Prisma.Order_itemsUpdateManyWithWhereWithoutMenuItemInput[]
+  deleteMany?: Prisma.Order_itemsScalarWhereInput | Prisma.Order_itemsScalarWhereInput[]
 }
 
-export type Order_itemsCreateManyMenuItemInputEnvelope = {
-  data: Prisma.Order_itemsCreateManyMenuItemInput | Prisma.Order_itemsCreateManyMenuItemInput[]
-  skipDuplicates?: boolean
-}
-
-export type Order_itemsUpsertWithWhereUniqueWithoutMenuItemInput = {
-  where: Prisma.Order_itemsWhereUniqueInput
-  update: Prisma.XOR<Prisma.Order_itemsUpdateWithoutMenuItemInput, Prisma.Order_itemsUncheckedUpdateWithoutMenuItemInput>
-  create: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput>
-}
-
-export type Order_itemsUpdateWithWhereUniqueWithoutMenuItemInput = {
-  where: Prisma.Order_itemsWhereUniqueInput
-  data: Prisma.XOR<Prisma.Order_itemsUpdateWithoutMenuItemInput, Prisma.Order_itemsUncheckedUpdateWithoutMenuItemInput>
-}
-
-export type Order_itemsUpdateManyWithWhereWithoutMenuItemInput = {
-  where: Prisma.Order_itemsScalarWhereInput
-  data: Prisma.XOR<Prisma.Order_itemsUpdateManyMutationInput, Prisma.Order_itemsUncheckedUpdateManyWithoutMenuItemInput>
-}
-
-export type Order_itemsScalarWhereInput = {
-  AND?: Prisma.Order_itemsScalarWhereInput | Prisma.Order_itemsScalarWhereInput[]
-  OR?: Prisma.Order_itemsScalarWhereInput[]
-  NOT?: Prisma.Order_itemsScalarWhereInput | Prisma.Order_itemsScalarWhereInput[]
-  id?: Prisma.StringFilter<"Order_items"> | string
-  orderId?: Prisma.StringFilter<"Order_items"> | string
-  menuItemId?: Prisma.StringFilter<"Order_items"> | string
-  quantity?: Prisma.IntFilter<"Order_items"> | number
-  price?: Prisma.IntFilter<"Order_items"> | number
-  createdAt?: Prisma.DateTimeFilter<"Order_items"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Order_items"> | Date | string
+export type Order_itemsUncheckedUpdateManyWithoutMenuItemNestedInput = {
+  create?: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput> | Prisma.Order_itemsCreateWithoutMenuItemInput[] | Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput[]
+  connectOrCreate?: Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput | Prisma.Order_itemsCreateOrConnectWithoutMenuItemInput[]
+  upsert?: Prisma.Order_itemsUpsertWithWhereUniqueWithoutMenuItemInput | Prisma.Order_itemsUpsertWithWhereUniqueWithoutMenuItemInput[]
+  createMany?: Prisma.Order_itemsCreateManyMenuItemInputEnvelope
+  set?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
+  disconnect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
+  delete?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
+  connect?: Prisma.Order_itemsWhereUniqueInput | Prisma.Order_itemsWhereUniqueInput[]
+  update?: Prisma.Order_itemsUpdateWithWhereUniqueWithoutMenuItemInput | Prisma.Order_itemsUpdateWithWhereUniqueWithoutMenuItemInput[]
+  updateMany?: Prisma.Order_itemsUpdateManyWithWhereWithoutMenuItemInput | Prisma.Order_itemsUpdateManyWithWhereWithoutMenuItemInput[]
+  deleteMany?: Prisma.Order_itemsScalarWhereInput | Prisma.Order_itemsScalarWhereInput[]
 }
 
 export type Order_itemsCreateWithoutOrderInput = {
@@ -598,7 +541,29 @@ export type Order_itemsUpdateManyWithWhereWithoutOrderInput = {
   data: Prisma.XOR<Prisma.Order_itemsUpdateManyMutationInput, Prisma.Order_itemsUncheckedUpdateManyWithoutOrderInput>
 }
 
-export type Order_itemsCreateManyMenuItemInput = {
+export type Order_itemsScalarWhereInput = {
+  AND?: Prisma.Order_itemsScalarWhereInput | Prisma.Order_itemsScalarWhereInput[]
+  OR?: Prisma.Order_itemsScalarWhereInput[]
+  NOT?: Prisma.Order_itemsScalarWhereInput | Prisma.Order_itemsScalarWhereInput[]
+  id?: Prisma.StringFilter<"Order_items"> | string
+  orderId?: Prisma.StringFilter<"Order_items"> | string
+  menuItemId?: Prisma.StringFilter<"Order_items"> | string
+  quantity?: Prisma.IntFilter<"Order_items"> | number
+  price?: Prisma.IntFilter<"Order_items"> | number
+  createdAt?: Prisma.DateTimeFilter<"Order_items"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Order_items"> | Date | string
+}
+
+export type Order_itemsCreateWithoutMenuItemInput = {
+  id?: string
+  quantity: number
+  price: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  order: Prisma.OrdersCreateNestedOneWithoutOrder_itemInput
+}
+
+export type Order_itemsUncheckedCreateWithoutMenuItemInput = {
   id?: string
   orderId: string
   quantity: number
@@ -607,31 +572,30 @@ export type Order_itemsCreateManyMenuItemInput = {
   updatedAt?: Date | string
 }
 
-export type Order_itemsUpdateWithoutMenuItemInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  price?: Prisma.IntFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  order?: Prisma.OrdersUpdateOneRequiredWithoutOrder_itemNestedInput
+export type Order_itemsCreateOrConnectWithoutMenuItemInput = {
+  where: Prisma.Order_itemsWhereUniqueInput
+  create: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput>
 }
 
-export type Order_itemsUncheckedUpdateWithoutMenuItemInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  orderId?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  price?: Prisma.IntFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+export type Order_itemsCreateManyMenuItemInputEnvelope = {
+  data: Prisma.Order_itemsCreateManyMenuItemInput | Prisma.Order_itemsCreateManyMenuItemInput[]
+  skipDuplicates?: boolean
 }
 
-export type Order_itemsUncheckedUpdateManyWithoutMenuItemInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  orderId?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
-  price?: Prisma.IntFieldUpdateOperationsInput | number
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+export type Order_itemsUpsertWithWhereUniqueWithoutMenuItemInput = {
+  where: Prisma.Order_itemsWhereUniqueInput
+  update: Prisma.XOR<Prisma.Order_itemsUpdateWithoutMenuItemInput, Prisma.Order_itemsUncheckedUpdateWithoutMenuItemInput>
+  create: Prisma.XOR<Prisma.Order_itemsCreateWithoutMenuItemInput, Prisma.Order_itemsUncheckedCreateWithoutMenuItemInput>
+}
+
+export type Order_itemsUpdateWithWhereUniqueWithoutMenuItemInput = {
+  where: Prisma.Order_itemsWhereUniqueInput
+  data: Prisma.XOR<Prisma.Order_itemsUpdateWithoutMenuItemInput, Prisma.Order_itemsUncheckedUpdateWithoutMenuItemInput>
+}
+
+export type Order_itemsUpdateManyWithWhereWithoutMenuItemInput = {
+  where: Prisma.Order_itemsScalarWhereInput
+  data: Prisma.XOR<Prisma.Order_itemsUpdateManyMutationInput, Prisma.Order_itemsUncheckedUpdateManyWithoutMenuItemInput>
 }
 
 export type Order_itemsCreateManyOrderInput = {
@@ -664,6 +628,42 @@ export type Order_itemsUncheckedUpdateWithoutOrderInput = {
 export type Order_itemsUncheckedUpdateManyWithoutOrderInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   menuItemId?: Prisma.StringFieldUpdateOperationsInput | string
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  price?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type Order_itemsCreateManyMenuItemInput = {
+  id?: string
+  orderId: string
+  quantity: number
+  price: number
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type Order_itemsUpdateWithoutMenuItemInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  price?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  order?: Prisma.OrdersUpdateOneRequiredWithoutOrder_itemNestedInput
+}
+
+export type Order_itemsUncheckedUpdateWithoutMenuItemInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  orderId?: Prisma.StringFieldUpdateOperationsInput | string
+  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  price?: Prisma.IntFieldUpdateOperationsInput | number
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type Order_itemsUncheckedUpdateManyWithoutMenuItemInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  orderId?: Prisma.StringFieldUpdateOperationsInput | string
   quantity?: Prisma.IntFieldUpdateOperationsInput | number
   price?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string

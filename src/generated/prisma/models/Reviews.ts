@@ -312,7 +312,7 @@ export type ReviewsCreateInput = {
   comment: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  customer: Prisma.UserCreateNestedOneWithoutReviewsInput
+  customer: Prisma.UserCreateNestedOneWithoutReviewInput
   restaurant: Prisma.RestaurantsCreateNestedOneWithoutReviewsInput
   menuItem: Prisma.Menu_itemsCreateNestedOneWithoutReviewsInput
 }
@@ -334,7 +334,7 @@ export type ReviewsUpdateInput = {
   comment?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  customer?: Prisma.UserUpdateOneRequiredWithoutReviewsNestedInput
+  customer?: Prisma.UserUpdateOneRequiredWithoutReviewNestedInput
   restaurant?: Prisma.RestaurantsUpdateOneRequiredWithoutReviewsNestedInput
   menuItem?: Prisma.Menu_itemsUpdateOneRequiredWithoutReviewsNestedInput
 }
@@ -431,48 +431,6 @@ export type ReviewsSumOrderByAggregateInput = {
   rating?: Prisma.SortOrder
 }
 
-export type ReviewsCreateNestedManyWithoutCustomerInput = {
-  create?: Prisma.XOR<Prisma.ReviewsCreateWithoutCustomerInput, Prisma.ReviewsUncheckedCreateWithoutCustomerInput> | Prisma.ReviewsCreateWithoutCustomerInput[] | Prisma.ReviewsUncheckedCreateWithoutCustomerInput[]
-  connectOrCreate?: Prisma.ReviewsCreateOrConnectWithoutCustomerInput | Prisma.ReviewsCreateOrConnectWithoutCustomerInput[]
-  createMany?: Prisma.ReviewsCreateManyCustomerInputEnvelope
-  connect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
-}
-
-export type ReviewsUncheckedCreateNestedManyWithoutCustomerInput = {
-  create?: Prisma.XOR<Prisma.ReviewsCreateWithoutCustomerInput, Prisma.ReviewsUncheckedCreateWithoutCustomerInput> | Prisma.ReviewsCreateWithoutCustomerInput[] | Prisma.ReviewsUncheckedCreateWithoutCustomerInput[]
-  connectOrCreate?: Prisma.ReviewsCreateOrConnectWithoutCustomerInput | Prisma.ReviewsCreateOrConnectWithoutCustomerInput[]
-  createMany?: Prisma.ReviewsCreateManyCustomerInputEnvelope
-  connect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
-}
-
-export type ReviewsUpdateManyWithoutCustomerNestedInput = {
-  create?: Prisma.XOR<Prisma.ReviewsCreateWithoutCustomerInput, Prisma.ReviewsUncheckedCreateWithoutCustomerInput> | Prisma.ReviewsCreateWithoutCustomerInput[] | Prisma.ReviewsUncheckedCreateWithoutCustomerInput[]
-  connectOrCreate?: Prisma.ReviewsCreateOrConnectWithoutCustomerInput | Prisma.ReviewsCreateOrConnectWithoutCustomerInput[]
-  upsert?: Prisma.ReviewsUpsertWithWhereUniqueWithoutCustomerInput | Prisma.ReviewsUpsertWithWhereUniqueWithoutCustomerInput[]
-  createMany?: Prisma.ReviewsCreateManyCustomerInputEnvelope
-  set?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
-  disconnect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
-  delete?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
-  connect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
-  update?: Prisma.ReviewsUpdateWithWhereUniqueWithoutCustomerInput | Prisma.ReviewsUpdateWithWhereUniqueWithoutCustomerInput[]
-  updateMany?: Prisma.ReviewsUpdateManyWithWhereWithoutCustomerInput | Prisma.ReviewsUpdateManyWithWhereWithoutCustomerInput[]
-  deleteMany?: Prisma.ReviewsScalarWhereInput | Prisma.ReviewsScalarWhereInput[]
-}
-
-export type ReviewsUncheckedUpdateManyWithoutCustomerNestedInput = {
-  create?: Prisma.XOR<Prisma.ReviewsCreateWithoutCustomerInput, Prisma.ReviewsUncheckedCreateWithoutCustomerInput> | Prisma.ReviewsCreateWithoutCustomerInput[] | Prisma.ReviewsUncheckedCreateWithoutCustomerInput[]
-  connectOrCreate?: Prisma.ReviewsCreateOrConnectWithoutCustomerInput | Prisma.ReviewsCreateOrConnectWithoutCustomerInput[]
-  upsert?: Prisma.ReviewsUpsertWithWhereUniqueWithoutCustomerInput | Prisma.ReviewsUpsertWithWhereUniqueWithoutCustomerInput[]
-  createMany?: Prisma.ReviewsCreateManyCustomerInputEnvelope
-  set?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
-  disconnect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
-  delete?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
-  connect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
-  update?: Prisma.ReviewsUpdateWithWhereUniqueWithoutCustomerInput | Prisma.ReviewsUpdateWithWhereUniqueWithoutCustomerInput[]
-  updateMany?: Prisma.ReviewsUpdateManyWithWhereWithoutCustomerInput | Prisma.ReviewsUpdateManyWithWhereWithoutCustomerInput[]
-  deleteMany?: Prisma.ReviewsScalarWhereInput | Prisma.ReviewsScalarWhereInput[]
-}
-
 export type ReviewsCreateNestedManyWithoutRestaurantInput = {
   create?: Prisma.XOR<Prisma.ReviewsCreateWithoutRestaurantInput, Prisma.ReviewsUncheckedCreateWithoutRestaurantInput> | Prisma.ReviewsCreateWithoutRestaurantInput[] | Prisma.ReviewsUncheckedCreateWithoutRestaurantInput[]
   connectOrCreate?: Prisma.ReviewsCreateOrConnectWithoutRestaurantInput | Prisma.ReviewsCreateOrConnectWithoutRestaurantInput[]
@@ -557,6 +515,154 @@ export type ReviewsUncheckedUpdateManyWithoutMenuItemNestedInput = {
   deleteMany?: Prisma.ReviewsScalarWhereInput | Prisma.ReviewsScalarWhereInput[]
 }
 
+export type ReviewsCreateNestedManyWithoutCustomerInput = {
+  create?: Prisma.XOR<Prisma.ReviewsCreateWithoutCustomerInput, Prisma.ReviewsUncheckedCreateWithoutCustomerInput> | Prisma.ReviewsCreateWithoutCustomerInput[] | Prisma.ReviewsUncheckedCreateWithoutCustomerInput[]
+  connectOrCreate?: Prisma.ReviewsCreateOrConnectWithoutCustomerInput | Prisma.ReviewsCreateOrConnectWithoutCustomerInput[]
+  createMany?: Prisma.ReviewsCreateManyCustomerInputEnvelope
+  connect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
+}
+
+export type ReviewsUncheckedCreateNestedManyWithoutCustomerInput = {
+  create?: Prisma.XOR<Prisma.ReviewsCreateWithoutCustomerInput, Prisma.ReviewsUncheckedCreateWithoutCustomerInput> | Prisma.ReviewsCreateWithoutCustomerInput[] | Prisma.ReviewsUncheckedCreateWithoutCustomerInput[]
+  connectOrCreate?: Prisma.ReviewsCreateOrConnectWithoutCustomerInput | Prisma.ReviewsCreateOrConnectWithoutCustomerInput[]
+  createMany?: Prisma.ReviewsCreateManyCustomerInputEnvelope
+  connect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
+}
+
+export type ReviewsUpdateManyWithoutCustomerNestedInput = {
+  create?: Prisma.XOR<Prisma.ReviewsCreateWithoutCustomerInput, Prisma.ReviewsUncheckedCreateWithoutCustomerInput> | Prisma.ReviewsCreateWithoutCustomerInput[] | Prisma.ReviewsUncheckedCreateWithoutCustomerInput[]
+  connectOrCreate?: Prisma.ReviewsCreateOrConnectWithoutCustomerInput | Prisma.ReviewsCreateOrConnectWithoutCustomerInput[]
+  upsert?: Prisma.ReviewsUpsertWithWhereUniqueWithoutCustomerInput | Prisma.ReviewsUpsertWithWhereUniqueWithoutCustomerInput[]
+  createMany?: Prisma.ReviewsCreateManyCustomerInputEnvelope
+  set?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
+  disconnect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
+  delete?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
+  connect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
+  update?: Prisma.ReviewsUpdateWithWhereUniqueWithoutCustomerInput | Prisma.ReviewsUpdateWithWhereUniqueWithoutCustomerInput[]
+  updateMany?: Prisma.ReviewsUpdateManyWithWhereWithoutCustomerInput | Prisma.ReviewsUpdateManyWithWhereWithoutCustomerInput[]
+  deleteMany?: Prisma.ReviewsScalarWhereInput | Prisma.ReviewsScalarWhereInput[]
+}
+
+export type ReviewsUncheckedUpdateManyWithoutCustomerNestedInput = {
+  create?: Prisma.XOR<Prisma.ReviewsCreateWithoutCustomerInput, Prisma.ReviewsUncheckedCreateWithoutCustomerInput> | Prisma.ReviewsCreateWithoutCustomerInput[] | Prisma.ReviewsUncheckedCreateWithoutCustomerInput[]
+  connectOrCreate?: Prisma.ReviewsCreateOrConnectWithoutCustomerInput | Prisma.ReviewsCreateOrConnectWithoutCustomerInput[]
+  upsert?: Prisma.ReviewsUpsertWithWhereUniqueWithoutCustomerInput | Prisma.ReviewsUpsertWithWhereUniqueWithoutCustomerInput[]
+  createMany?: Prisma.ReviewsCreateManyCustomerInputEnvelope
+  set?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
+  disconnect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
+  delete?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
+  connect?: Prisma.ReviewsWhereUniqueInput | Prisma.ReviewsWhereUniqueInput[]
+  update?: Prisma.ReviewsUpdateWithWhereUniqueWithoutCustomerInput | Prisma.ReviewsUpdateWithWhereUniqueWithoutCustomerInput[]
+  updateMany?: Prisma.ReviewsUpdateManyWithWhereWithoutCustomerInput | Prisma.ReviewsUpdateManyWithWhereWithoutCustomerInput[]
+  deleteMany?: Prisma.ReviewsScalarWhereInput | Prisma.ReviewsScalarWhereInput[]
+}
+
+export type ReviewsCreateWithoutRestaurantInput = {
+  id?: string
+  rating: number
+  comment: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer: Prisma.UserCreateNestedOneWithoutReviewInput
+  menuItem: Prisma.Menu_itemsCreateNestedOneWithoutReviewsInput
+}
+
+export type ReviewsUncheckedCreateWithoutRestaurantInput = {
+  id?: string
+  customerId: string
+  menuItemId: string
+  rating: number
+  comment: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type ReviewsCreateOrConnectWithoutRestaurantInput = {
+  where: Prisma.ReviewsWhereUniqueInput
+  create: Prisma.XOR<Prisma.ReviewsCreateWithoutRestaurantInput, Prisma.ReviewsUncheckedCreateWithoutRestaurantInput>
+}
+
+export type ReviewsCreateManyRestaurantInputEnvelope = {
+  data: Prisma.ReviewsCreateManyRestaurantInput | Prisma.ReviewsCreateManyRestaurantInput[]
+  skipDuplicates?: boolean
+}
+
+export type ReviewsUpsertWithWhereUniqueWithoutRestaurantInput = {
+  where: Prisma.ReviewsWhereUniqueInput
+  update: Prisma.XOR<Prisma.ReviewsUpdateWithoutRestaurantInput, Prisma.ReviewsUncheckedUpdateWithoutRestaurantInput>
+  create: Prisma.XOR<Prisma.ReviewsCreateWithoutRestaurantInput, Prisma.ReviewsUncheckedCreateWithoutRestaurantInput>
+}
+
+export type ReviewsUpdateWithWhereUniqueWithoutRestaurantInput = {
+  where: Prisma.ReviewsWhereUniqueInput
+  data: Prisma.XOR<Prisma.ReviewsUpdateWithoutRestaurantInput, Prisma.ReviewsUncheckedUpdateWithoutRestaurantInput>
+}
+
+export type ReviewsUpdateManyWithWhereWithoutRestaurantInput = {
+  where: Prisma.ReviewsScalarWhereInput
+  data: Prisma.XOR<Prisma.ReviewsUpdateManyMutationInput, Prisma.ReviewsUncheckedUpdateManyWithoutRestaurantInput>
+}
+
+export type ReviewsScalarWhereInput = {
+  AND?: Prisma.ReviewsScalarWhereInput | Prisma.ReviewsScalarWhereInput[]
+  OR?: Prisma.ReviewsScalarWhereInput[]
+  NOT?: Prisma.ReviewsScalarWhereInput | Prisma.ReviewsScalarWhereInput[]
+  id?: Prisma.StringFilter<"Reviews"> | string
+  customerId?: Prisma.StringFilter<"Reviews"> | string
+  restaurantId?: Prisma.StringFilter<"Reviews"> | string
+  menuItemId?: Prisma.StringFilter<"Reviews"> | string
+  rating?: Prisma.IntFilter<"Reviews"> | number
+  comment?: Prisma.StringFilter<"Reviews"> | string
+  createdAt?: Prisma.DateTimeFilter<"Reviews"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Reviews"> | Date | string
+}
+
+export type ReviewsCreateWithoutMenuItemInput = {
+  id?: string
+  rating: number
+  comment: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer: Prisma.UserCreateNestedOneWithoutReviewInput
+  restaurant: Prisma.RestaurantsCreateNestedOneWithoutReviewsInput
+}
+
+export type ReviewsUncheckedCreateWithoutMenuItemInput = {
+  id?: string
+  customerId: string
+  restaurantId: string
+  rating: number
+  comment: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type ReviewsCreateOrConnectWithoutMenuItemInput = {
+  where: Prisma.ReviewsWhereUniqueInput
+  create: Prisma.XOR<Prisma.ReviewsCreateWithoutMenuItemInput, Prisma.ReviewsUncheckedCreateWithoutMenuItemInput>
+}
+
+export type ReviewsCreateManyMenuItemInputEnvelope = {
+  data: Prisma.ReviewsCreateManyMenuItemInput | Prisma.ReviewsCreateManyMenuItemInput[]
+  skipDuplicates?: boolean
+}
+
+export type ReviewsUpsertWithWhereUniqueWithoutMenuItemInput = {
+  where: Prisma.ReviewsWhereUniqueInput
+  update: Prisma.XOR<Prisma.ReviewsUpdateWithoutMenuItemInput, Prisma.ReviewsUncheckedUpdateWithoutMenuItemInput>
+  create: Prisma.XOR<Prisma.ReviewsCreateWithoutMenuItemInput, Prisma.ReviewsUncheckedCreateWithoutMenuItemInput>
+}
+
+export type ReviewsUpdateWithWhereUniqueWithoutMenuItemInput = {
+  where: Prisma.ReviewsWhereUniqueInput
+  data: Prisma.XOR<Prisma.ReviewsUpdateWithoutMenuItemInput, Prisma.ReviewsUncheckedUpdateWithoutMenuItemInput>
+}
+
+export type ReviewsUpdateManyWithWhereWithoutMenuItemInput = {
+  where: Prisma.ReviewsScalarWhereInput
+  data: Prisma.XOR<Prisma.ReviewsUpdateManyMutationInput, Prisma.ReviewsUncheckedUpdateManyWithoutMenuItemInput>
+}
+
 export type ReviewsCreateWithoutCustomerInput = {
   id?: string
   rating: number
@@ -603,152 +709,6 @@ export type ReviewsUpdateManyWithWhereWithoutCustomerInput = {
   data: Prisma.XOR<Prisma.ReviewsUpdateManyMutationInput, Prisma.ReviewsUncheckedUpdateManyWithoutCustomerInput>
 }
 
-export type ReviewsScalarWhereInput = {
-  AND?: Prisma.ReviewsScalarWhereInput | Prisma.ReviewsScalarWhereInput[]
-  OR?: Prisma.ReviewsScalarWhereInput[]
-  NOT?: Prisma.ReviewsScalarWhereInput | Prisma.ReviewsScalarWhereInput[]
-  id?: Prisma.StringFilter<"Reviews"> | string
-  customerId?: Prisma.StringFilter<"Reviews"> | string
-  restaurantId?: Prisma.StringFilter<"Reviews"> | string
-  menuItemId?: Prisma.StringFilter<"Reviews"> | string
-  rating?: Prisma.IntFilter<"Reviews"> | number
-  comment?: Prisma.StringFilter<"Reviews"> | string
-  createdAt?: Prisma.DateTimeFilter<"Reviews"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"Reviews"> | Date | string
-}
-
-export type ReviewsCreateWithoutRestaurantInput = {
-  id?: string
-  rating: number
-  comment: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  customer: Prisma.UserCreateNestedOneWithoutReviewsInput
-  menuItem: Prisma.Menu_itemsCreateNestedOneWithoutReviewsInput
-}
-
-export type ReviewsUncheckedCreateWithoutRestaurantInput = {
-  id?: string
-  customerId: string
-  menuItemId: string
-  rating: number
-  comment: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type ReviewsCreateOrConnectWithoutRestaurantInput = {
-  where: Prisma.ReviewsWhereUniqueInput
-  create: Prisma.XOR<Prisma.ReviewsCreateWithoutRestaurantInput, Prisma.ReviewsUncheckedCreateWithoutRestaurantInput>
-}
-
-export type ReviewsCreateManyRestaurantInputEnvelope = {
-  data: Prisma.ReviewsCreateManyRestaurantInput | Prisma.ReviewsCreateManyRestaurantInput[]
-  skipDuplicates?: boolean
-}
-
-export type ReviewsUpsertWithWhereUniqueWithoutRestaurantInput = {
-  where: Prisma.ReviewsWhereUniqueInput
-  update: Prisma.XOR<Prisma.ReviewsUpdateWithoutRestaurantInput, Prisma.ReviewsUncheckedUpdateWithoutRestaurantInput>
-  create: Prisma.XOR<Prisma.ReviewsCreateWithoutRestaurantInput, Prisma.ReviewsUncheckedCreateWithoutRestaurantInput>
-}
-
-export type ReviewsUpdateWithWhereUniqueWithoutRestaurantInput = {
-  where: Prisma.ReviewsWhereUniqueInput
-  data: Prisma.XOR<Prisma.ReviewsUpdateWithoutRestaurantInput, Prisma.ReviewsUncheckedUpdateWithoutRestaurantInput>
-}
-
-export type ReviewsUpdateManyWithWhereWithoutRestaurantInput = {
-  where: Prisma.ReviewsScalarWhereInput
-  data: Prisma.XOR<Prisma.ReviewsUpdateManyMutationInput, Prisma.ReviewsUncheckedUpdateManyWithoutRestaurantInput>
-}
-
-export type ReviewsCreateWithoutMenuItemInput = {
-  id?: string
-  rating: number
-  comment: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  customer: Prisma.UserCreateNestedOneWithoutReviewsInput
-  restaurant: Prisma.RestaurantsCreateNestedOneWithoutReviewsInput
-}
-
-export type ReviewsUncheckedCreateWithoutMenuItemInput = {
-  id?: string
-  customerId: string
-  restaurantId: string
-  rating: number
-  comment: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type ReviewsCreateOrConnectWithoutMenuItemInput = {
-  where: Prisma.ReviewsWhereUniqueInput
-  create: Prisma.XOR<Prisma.ReviewsCreateWithoutMenuItemInput, Prisma.ReviewsUncheckedCreateWithoutMenuItemInput>
-}
-
-export type ReviewsCreateManyMenuItemInputEnvelope = {
-  data: Prisma.ReviewsCreateManyMenuItemInput | Prisma.ReviewsCreateManyMenuItemInput[]
-  skipDuplicates?: boolean
-}
-
-export type ReviewsUpsertWithWhereUniqueWithoutMenuItemInput = {
-  where: Prisma.ReviewsWhereUniqueInput
-  update: Prisma.XOR<Prisma.ReviewsUpdateWithoutMenuItemInput, Prisma.ReviewsUncheckedUpdateWithoutMenuItemInput>
-  create: Prisma.XOR<Prisma.ReviewsCreateWithoutMenuItemInput, Prisma.ReviewsUncheckedCreateWithoutMenuItemInput>
-}
-
-export type ReviewsUpdateWithWhereUniqueWithoutMenuItemInput = {
-  where: Prisma.ReviewsWhereUniqueInput
-  data: Prisma.XOR<Prisma.ReviewsUpdateWithoutMenuItemInput, Prisma.ReviewsUncheckedUpdateWithoutMenuItemInput>
-}
-
-export type ReviewsUpdateManyWithWhereWithoutMenuItemInput = {
-  where: Prisma.ReviewsScalarWhereInput
-  data: Prisma.XOR<Prisma.ReviewsUpdateManyMutationInput, Prisma.ReviewsUncheckedUpdateManyWithoutMenuItemInput>
-}
-
-export type ReviewsCreateManyCustomerInput = {
-  id?: string
-  restaurantId: string
-  menuItemId: string
-  rating: number
-  comment: string
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type ReviewsUpdateWithoutCustomerInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  rating?: Prisma.IntFieldUpdateOperationsInput | number
-  comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  restaurant?: Prisma.RestaurantsUpdateOneRequiredWithoutReviewsNestedInput
-  menuItem?: Prisma.Menu_itemsUpdateOneRequiredWithoutReviewsNestedInput
-}
-
-export type ReviewsUncheckedUpdateWithoutCustomerInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  restaurantId?: Prisma.StringFieldUpdateOperationsInput | string
-  menuItemId?: Prisma.StringFieldUpdateOperationsInput | string
-  rating?: Prisma.IntFieldUpdateOperationsInput | number
-  comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type ReviewsUncheckedUpdateManyWithoutCustomerInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  restaurantId?: Prisma.StringFieldUpdateOperationsInput | string
-  menuItemId?: Prisma.StringFieldUpdateOperationsInput | string
-  rating?: Prisma.IntFieldUpdateOperationsInput | number
-  comment?: Prisma.StringFieldUpdateOperationsInput | string
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
 export type ReviewsCreateManyRestaurantInput = {
   id?: string
   customerId: string
@@ -765,7 +725,7 @@ export type ReviewsUpdateWithoutRestaurantInput = {
   comment?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  customer?: Prisma.UserUpdateOneRequiredWithoutReviewsNestedInput
+  customer?: Prisma.UserUpdateOneRequiredWithoutReviewNestedInput
   menuItem?: Prisma.Menu_itemsUpdateOneRequiredWithoutReviewsNestedInput
 }
 
@@ -805,7 +765,7 @@ export type ReviewsUpdateWithoutMenuItemInput = {
   comment?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  customer?: Prisma.UserUpdateOneRequiredWithoutReviewsNestedInput
+  customer?: Prisma.UserUpdateOneRequiredWithoutReviewNestedInput
   restaurant?: Prisma.RestaurantsUpdateOneRequiredWithoutReviewsNestedInput
 }
 
@@ -823,6 +783,46 @@ export type ReviewsUncheckedUpdateManyWithoutMenuItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   customerId?: Prisma.StringFieldUpdateOperationsInput | string
   restaurantId?: Prisma.StringFieldUpdateOperationsInput | string
+  rating?: Prisma.IntFieldUpdateOperationsInput | number
+  comment?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type ReviewsCreateManyCustomerInput = {
+  id?: string
+  restaurantId: string
+  menuItemId: string
+  rating: number
+  comment: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type ReviewsUpdateWithoutCustomerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  rating?: Prisma.IntFieldUpdateOperationsInput | number
+  comment?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  restaurant?: Prisma.RestaurantsUpdateOneRequiredWithoutReviewsNestedInput
+  menuItem?: Prisma.Menu_itemsUpdateOneRequiredWithoutReviewsNestedInput
+}
+
+export type ReviewsUncheckedUpdateWithoutCustomerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  restaurantId?: Prisma.StringFieldUpdateOperationsInput | string
+  menuItemId?: Prisma.StringFieldUpdateOperationsInput | string
+  rating?: Prisma.IntFieldUpdateOperationsInput | number
+  comment?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type ReviewsUncheckedUpdateManyWithoutCustomerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  restaurantId?: Prisma.StringFieldUpdateOperationsInput | string
+  menuItemId?: Prisma.StringFieldUpdateOperationsInput | string
   rating?: Prisma.IntFieldUpdateOperationsInput | number
   comment?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string

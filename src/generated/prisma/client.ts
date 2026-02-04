@@ -29,8 +29,8 @@ export * from "./enums"
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * // Fetch zero or more Orders
+ * const orders = await prisma.orders.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -39,6 +39,36 @@ export const PrismaClient = $Class.getPrismaClientClass()
 export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts extends Prisma.PrismaClientOptions["omit"] = Prisma.PrismaClientOptions["omit"], ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = $Class.PrismaClient<LogOpts, OmitOpts, ExtArgs>
 export { Prisma }
 
+/**
+ * Model Orders
+ * 
+ */
+export type Orders = Prisma.OrdersModel
+/**
+ * Model Order_items
+ * 
+ */
+export type Order_items = Prisma.Order_itemsModel
+/**
+ * Model Restaurants
+ * 
+ */
+export type Restaurants = Prisma.RestaurantsModel
+/**
+ * Model Menus
+ * 
+ */
+export type Menus = Prisma.MenusModel
+/**
+ * Model Menu_items
+ * 
+ */
+export type Menu_items = Prisma.Menu_itemsModel
+/**
+ * Model Reviews
+ * 
+ */
+export type Reviews = Prisma.ReviewsModel
 /**
  * Model User
  * 
@@ -59,33 +89,3 @@ export type Account = Prisma.AccountModel
  * 
  */
 export type Verification = Prisma.VerificationModel
-/**
- * Model Restaurants
- * 
- */
-export type Restaurants = Prisma.RestaurantsModel
-/**
- * Model Menus
- * 
- */
-export type Menus = Prisma.MenusModel
-/**
- * Model Menu_items
- * 
- */
-export type Menu_items = Prisma.Menu_itemsModel
-/**
- * Model Orders
- * 
- */
-export type Orders = Prisma.OrdersModel
-/**
- * Model Order_items
- * 
- */
-export type Order_items = Prisma.Order_itemsModel
-/**
- * Model Reviews
- * 
- */
-export type Reviews = Prisma.ReviewsModel
