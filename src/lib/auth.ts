@@ -19,28 +19,27 @@ export const auth = betterAuth({
       },
       address: {
         type: "string",
-        required: true,
       },
     },
   },
   emailAndPassword: {
     enabled: true,
     // autoSignIn: false,
-    requireEmailVerification: true,
+    // requireEmailVerification: true,
   },
 
-  emailVerification: {
-    enabled: true,
-    sendOnSignUp: true,
+  // emailVerification: {
+  //   enabled: true,
+  //   sendOnSignUp: true,
 
-    // ✅ Add the sendVerificationEmail function
-    sendVerificationEmail: async ({ user, url, token }, request) => {
-      console.log("🔐 Email verification triggered!");
-      console.log(`📧 For user: ${user.email}`);
-      console.log(`🔗 Verification URL: ${url}`);
-      console.log(`🔑 Token: ${token}`);
-    },
-  },
+  //   // ✅ Add the sendVerificationEmail function
+  //   sendVerificationEmail: async ({ user, url, token }, request) => {
+  //     console.log("🔐 Email verification triggered!");
+  //     console.log(`📧 For user: ${user.email}`);
+  //     console.log(`🔗 Verification URL: ${url}`);
+  //     console.log(`🔑 Token: ${token}`);
+  //   },
+  // },
 
   socialProviders: {
     google: {

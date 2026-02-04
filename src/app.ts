@@ -26,5 +26,18 @@ app.get("/", (req: Request, res: Response) => {
 
 app.all(/(.*)/, notFound);
 
+async function CreateAdmin() {
+  await auth.api.createUser({
+    body: {
+      name: config.ADMIN_NAME as string,
+      email: config.ADMIN_EMAIL as string,
+      password: config.ADMIN_PASSWORD as string,
+      role: "admin",
+    },
+  });
+}
+
+CreateAdmin();
+
 app.use(globalErrorHandler);
 export default app;

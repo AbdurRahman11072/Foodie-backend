@@ -13,6 +13,9 @@ const config = {
   GMAIL_SECRET: process.env.GMAIL_SECRET,
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+  ADMIN_NAME: process.env.ADMIN_NAME,
+  ADMIN_EMAIL: process.env.ADMIN_EMAIL,
+  ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
 };
 
 export default config;

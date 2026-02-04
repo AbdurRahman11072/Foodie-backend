@@ -6,9 +6,14 @@ model User {
   emailVerified Boolean   @default(false)
   image         String?
   createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt 
+  updatedAt     DateTime  @updatedAt
+  role          String?
+  banned        Boolean?  @default(false)
+  banReason     String?
+  banExpires    DateTime?
   phoneNumber   String?
-  address       String
+  address       String?
+// relations
   sessions      Session[]
   accounts      Account[]
   restaurant  Restaurants?
@@ -18,6 +23,7 @@ model User {
   @@unique([email])
   @@map("user")
 }
+
 
 model Session {
   id        String   @id
@@ -66,3 +72,4 @@ model Verification {
   @@index([identifier])
   @@map("verification")
 }
+
