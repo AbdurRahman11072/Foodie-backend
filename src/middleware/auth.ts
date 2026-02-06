@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status-codes";
+import customError from "../error";
 import { auth } from "../lib/auth";
 
 declare global {
@@ -16,13 +17,21 @@ declare global {
   }
 }
 
-const authMiddelware = () => {
+const authMiddleware = (role: string[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
+      console.log("authMiddleware");
+
       const session = await auth.api.getSession({
-        headers: req.header as any,
+        headers: req.headers as any,
       });
-      console.log(session?.user.role);
+
+      console.log("session: ", session);
+      console.log(role);
+
+      if (!role.includes(session?.user?.role as string)) {
+        throw new customError("Unauthorized access", httpStatus.FORBIDDEN);
+      }
 
       next();
     } catch (error) {
@@ -34,4 +43,4 @@ const authMiddelware = () => {
   };
 };
 
-export default authMiddelware;
+export default authMiddleware;

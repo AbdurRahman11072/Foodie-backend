@@ -4,7 +4,6 @@ import express, { Application, Request, Response } from "express";
 import config from "./config";
 import { notFound } from "./error/notFound";
 import { auth } from "./lib/auth";
-import authMiddelware from "./middleware/auth";
 import globalErrorHandler from "./middleware/globalErrorHandler";
 import { RootRoutes } from "./routes";
 
@@ -18,7 +17,7 @@ app.use(
 );
 
 app.use(express.json());
-app.all("/api/auth/*splat", authMiddelware(), toNodeHandler(auth));
+app.all("/api/auth/*splat", toNodeHandler(auth));
 
 app.use("/api/v1", RootRoutes);
 app.get("/", (req: Request, res: Response) => {
@@ -27,5 +26,6 @@ app.get("/", (req: Request, res: Response) => {
 
 app.all(/(.*)/, notFound);
 
+// createAdmin();
 app.use(globalErrorHandler);
 export default app;
