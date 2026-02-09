@@ -7,8 +7,9 @@ import { prisma } from "./prisma";
 // If your Prisma file is located elsewhere, you can change the path
 
 export const auth = betterAuth({
+  baseURL: config.FRONTEND_URL,
+  trustedOrigins: [`${config.FRONTEND_URL}`],
   secret: config.BETTER_AUTH_SECRET,
-  baseURL: config.BETTER_AUTH_URL,
   database: prismaAdapter(prisma, {
     provider: "postgresql", // or "mysql", "postgresql", ...etc
   }),
@@ -45,6 +46,7 @@ export const auth = betterAuth({
     google: {
       clientId: config.GOOGLE_CLIENT_ID as string,
       clientSecret: config.GOOGLE_CLIENT_SECRET as string,
+      redirectURI: `${config.BETTER_AUTH_URL}/api/auth/callback/google`,
     },
   },
 
