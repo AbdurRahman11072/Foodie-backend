@@ -12,6 +12,11 @@ router.get(
 
   userController.getUserById,
 );
-router.post("/update-role", userController.updateRole);
+router.put(
+  "/update-role",
+  authMiddleware([userRoles.admin, userRoles.user]),
+  userController.updateRole,
+);
+router.put("/update-info/:id", userController.updateUserInfo);
 
 export const userRoutes: RouterType = router;

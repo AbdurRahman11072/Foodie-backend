@@ -58,8 +58,31 @@ const updateRole = asyncHandler(async (req, res) => {
     data: data,
   });
 });
+
+const updateUserInfo = asyncHandler(async (req, res) => {
+  const userInfo = req.body;
+  const { id } = req.params;
+
+  const data = await prisma.user.update({
+    where: { id: id as string },
+    data: { ...userInfo },
+  });
+  if (!data) {
+    throw new customError(
+      "user not found. Failed to update user info",
+      httpStatus.NOT_FOUND,
+    );
+  }
+
+  res.status(httpStatus.OK).json({
+    success: true,
+    message: "User role has been updated",
+    data: data,
+  });
+});
 export const userController = {
   getAllUser,
   updateRole,
   getUserById,
+  updateUserInfo,
 };
