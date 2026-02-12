@@ -1,25 +1,85 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status-codes";
+import customError from "../../error";
+import asyncHandler from "../../lib/asyncRequestHandler";
 import { prisma } from "../../lib/prisma";
 
 const getAllRestaurants = async (req: Request, res: Response) => {
   try {
-    const users = await prisma.restaurants.findMany();
+    const result = await prisma.restaurants.findMany();
+    if (result.length === 0) {
+      return res.status(httpStatus.OK).json({
+        success: true,
+        message: "No restaurant in the database",
+        data: result,
+      });
+    }
 
     res.status(httpStatus.OK).json({
       success: true,
       message: "All Restaurant",
-      result: users,
+      data: result,
     });
   } catch (error) {
     res.status(httpStatus.NOT_FOUND).json({
       success: false,
       message: "Restaurants not found",
-      result: error,
+      data: error,
     });
   }
 };
 
+const createRestaurants = asyncHandler(async (req, res) => {
+  const data = req.body;
+  const checkRestaurant = await prisma.restaurants.findFirst({
+    where: { ownerId: data.ownerId },
+  });
+  if (checkRestaurant)
+    throw new customError(
+      "User already have a restaurant. Can't create second restaurant",
+      httpStatus.FORBIDDEN,
+    );
+  const result = await prisma.restaurants.create({
+    data: {
+      name: data.name,
+      description: data.description,
+      address: data.address,
+      phone: data.phone,
+      user: {
+        connect: {
+          id: data.ownerId,
+        },
+      },
+    },
+  });
+
+  res.status(httpStatus.OK).json({
+    success: true,
+    message: "Restaurant has been found with the id",
+    data: result,
+  });
+});
+
+const getRestaurantById = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  const result = await prisma.restaurants.findUnique({
+    where: { ownerId: id as string },
+  });
+  if (!result)
+    throw new customError(
+      "There is no restaurant with the id",
+      httpStatus.NOT_FOUND,
+    );
+  res.status(httpStatus.OK).json({
+    success: true,
+    message: "Restaurant has been found with the id",
+    data: result,
+  });
+});
+
 export const RestaurantController = {
   getAllRestaurants,
+  getRestaurantById,
+  createRestaurants,
 };
