@@ -7,6 +7,11 @@ import { userController } from "./user.controller";
 const router = Router();
 
 router.get("/", authMiddleware([userRoles.admin]), userController.getAllUser);
+router.get(
+  "/:id",
+
+  userController.getUserById,
+);
 router.post("/update-role", userController.updateRole);
 
 export const userRoutes: RouterType = router;
