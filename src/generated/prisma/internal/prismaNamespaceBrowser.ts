@@ -54,7 +54,6 @@ export const ModelName = {
   Orders: 'Orders',
   Order_items: 'Order_items',
   Restaurants: 'Restaurants',
-  Menus: 'Menus',
   Menu_items: 'Menu_items',
   Reviews: 'Reviews',
   User: 'User',
@@ -122,26 +121,21 @@ export const RestaurantsScalarFieldEnum = {
 export type RestaurantsScalarFieldEnum = (typeof RestaurantsScalarFieldEnum)[keyof typeof RestaurantsScalarFieldEnum]
 
 
-export const MenusScalarFieldEnum = {
-  id: 'id',
-  restaurantId: 'restaurantId',
-  title: 'title',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type MenusScalarFieldEnum = (typeof MenusScalarFieldEnum)[keyof typeof MenusScalarFieldEnum]
-
-
 export const Menu_itemsScalarFieldEnum = {
   id: 'id',
-  menuid: 'menuid',
+  restaurantId: 'restaurantId',
   name: 'name',
   description: 'description',
   price: 'price',
+  rating: 'rating',
+  cuisine: 'cuisine',
   imageUrl: 'imageUrl',
   available: 'available',
+  ingredients: 'ingredients',
+  deliveryTime: 'deliveryTime',
+  allergens: 'allergens',
+  calories: 'calories',
+  servingSize: 'servingSize',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

@@ -11,7 +11,6 @@
 export type * from './models/Orders'
 export type * from './models/Order_items'
 export type * from './models/Restaurants'
-export type * from './models/Menus'
 export type * from './models/Menu_items'
 export type * from './models/Reviews'
 export type * from './models/User'

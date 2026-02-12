@@ -33,11 +33,6 @@ export type Order_items = Prisma.Order_itemsModel
  */
 export type Restaurants = Prisma.RestaurantsModel
 /**
- * Model Menus
- * 
- */
-export type Menus = Prisma.MenusModel
-/**
  * Model Menu_items
  * 
  */

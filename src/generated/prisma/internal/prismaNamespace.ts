@@ -387,7 +387,6 @@ export const ModelName = {
   Orders: 'Orders',
   Order_items: 'Order_items',
   Restaurants: 'Restaurants',
-  Menus: 'Menus',
   Menu_items: 'Menu_items',
   Reviews: 'Reviews',
   User: 'User',
@@ -409,7 +408,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "orders" | "order_items" | "restaurants" | "menus" | "menu_items" | "reviews" | "user" | "session" | "account" | "verification"
+    modelProps: "orders" | "order_items" | "restaurants" | "menu_items" | "reviews" | "user" | "session" | "account" | "verification"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -632,80 +631,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.RestaurantsCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.RestaurantsCountAggregateOutputType> | number
-        }
-      }
-    }
-    Menus: {
-      payload: Prisma.$MenusPayload<ExtArgs>
-      fields: Prisma.MenusFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.MenusFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$MenusPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.MenusFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$MenusPayload>
-        }
-        findFirst: {
-          args: Prisma.MenusFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$MenusPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.MenusFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$MenusPayload>
-        }
-        findMany: {
-          args: Prisma.MenusFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$MenusPayload>[]
-        }
-        create: {
-          args: Prisma.MenusCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$MenusPayload>
-        }
-        createMany: {
-          args: Prisma.MenusCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.MenusCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$MenusPayload>[]
-        }
-        delete: {
-          args: Prisma.MenusDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$MenusPayload>
-        }
-        update: {
-          args: Prisma.MenusUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$MenusPayload>
-        }
-        deleteMany: {
-          args: Prisma.MenusDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.MenusUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.MenusUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$MenusPayload>[]
-        }
-        upsert: {
-          args: Prisma.MenusUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$MenusPayload>
-        }
-        aggregate: {
-          args: Prisma.MenusAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateMenus>
-        }
-        groupBy: {
-          args: Prisma.MenusGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.MenusGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.MenusCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.MenusCountAggregateOutputType> | number
         }
       }
     }
@@ -1235,26 +1160,21 @@ export const RestaurantsScalarFieldEnum = {
 export type RestaurantsScalarFieldEnum = (typeof RestaurantsScalarFieldEnum)[keyof typeof RestaurantsScalarFieldEnum]
 
 
-export const MenusScalarFieldEnum = {
-  id: 'id',
-  restaurantId: 'restaurantId',
-  title: 'title',
-  description: 'description',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type MenusScalarFieldEnum = (typeof MenusScalarFieldEnum)[keyof typeof MenusScalarFieldEnum]
-
-
 export const Menu_itemsScalarFieldEnum = {
   id: 'id',
-  menuid: 'menuid',
+  restaurantId: 'restaurantId',
   name: 'name',
   description: 'description',
   price: 'price',
+  rating: 'rating',
+  cuisine: 'cuisine',
   imageUrl: 'imageUrl',
   available: 'available',
+  ingredients: 'ingredients',
+  deliveryTime: 'deliveryTime',
+  allergens: 'allergens',
+  calories: 'calories',
+  servingSize: 'servingSize',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1544,7 +1464,6 @@ export type GlobalOmitConfig = {
   orders?: Prisma.OrdersOmit
   order_items?: Prisma.Order_itemsOmit
   restaurants?: Prisma.RestaurantsOmit
-  menus?: Prisma.MenusOmit
   menu_items?: Prisma.Menu_itemsOmit
   reviews?: Prisma.ReviewsOmit
   user?: Prisma.UserOmit

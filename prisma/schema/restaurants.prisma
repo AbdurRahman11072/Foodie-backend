@@ -9,8 +9,8 @@ model Restaurants {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  menu Menus?
+  
+  menuItem Menu_items[]
   order Orders[]
   reviews Reviews[]
 
@@ -19,38 +19,28 @@ model Restaurants {
   
 }
 
-
-model Menus {
-  id String @id @unique @default(uuid())
-  restaurantId String @unique
-  title String
-  description String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  
-  menu_items Menu_items[]
-
-  restaurant Restaurants @relation(fields: [restaurantId], references: [id],onDelete: Cascade)
-
-
-  
-}
-
 model Menu_items {
   id String @id @unique @default(uuid())
-  menuid String
+  restaurantId String
   name String
   description String
   price Int
+  rating Int
+  cuisine String  
   imageUrl String
   available Boolean
+  ingredients String[]
+  deliveryTime String
+  allergens String[]
+  calories Int
+  servingSize String
+  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   order Order_items[]
   reviews Reviews[]
-
-  menus Menus @relation(fields: [menuid], references: [id], onDelete: Cascade)
-
-  
+  resturant Restaurants @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+ 
 }
+

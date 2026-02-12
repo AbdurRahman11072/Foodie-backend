@@ -12,7 +12,7 @@ model Orders {
   totalAmount Int
   orderTime DateTime @default(now())
   deliveryAddress String
-  paymentMethod String
+  paymentMethod String 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -37,5 +37,4 @@ model Order_items {
   order Orders @relation(fields: [orderId], references: [id], onDelete: Cascade)
   menuItem Menu_items @relation(fields: [menuItemId], references: [id], onDelete: Cascade)
 
-  
 }
