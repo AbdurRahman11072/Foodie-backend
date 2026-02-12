@@ -3,6 +3,7 @@ import httpStatus from "http-status-codes";
 import customError from "../../error";
 import asyncHandler from "../../lib/asyncRequestHandler";
 import { prisma } from "../../lib/prisma";
+import { userRoles } from "../../types";
 
 const getAllUser = async (req: Request, res: Response) => {
   try {
@@ -39,6 +40,11 @@ const getUserById = asyncHandler(async (req, res) => {
 
 const updateRole = asyncHandler(async (req, res) => {
   const { userId, role } = req.body;
+  const userRole = req.user.role;
+  if (userRole !== userRoles.admin && role === userRoles.admin) {
+    throw new customError("Unauthorized access", httpStatus.UNAUTHORIZED);
+  }
+
   const data = await prisma.user.update({
     where: { id: userId },
     data: {

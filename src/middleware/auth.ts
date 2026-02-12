@@ -10,7 +10,7 @@ declare global {
         id: string;
         email: string;
         name: string;
-        role: string;
+        role: "user" | "seller" | "admin";
         emailVerified: boolean;
       };
     }
@@ -25,6 +25,13 @@ const authMiddleware = (role: string[]) => {
       const session = await auth.api.getSession({
         headers: req.headers as any,
       });
+      req.user = {
+        id: session?.user?.id as string,
+        name: session?.user?.name as string,
+        email: session?.user?.email as string,
+        role: session?.user?.role as "user" | "seller" | "admin",
+        emailVerified: session?.user?.emailVerified as boolean,
+      };
 
       console.log("session: ", session);
       console.log(role);
