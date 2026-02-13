@@ -45,11 +45,6 @@ export { Prisma }
  */
 export type Orders = Prisma.OrdersModel
 /**
- * Model Order_items
- * 
- */
-export type Order_items = Prisma.Order_itemsModel
-/**
  * Model Restaurants
  * 
  */

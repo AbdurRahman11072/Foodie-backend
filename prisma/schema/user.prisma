@@ -17,7 +17,8 @@ model User {
   sessions      Session[]
   accounts      Account[]
   restaurant  Restaurants?
-  order Orders[]
+
+  orders Orders[]
   review Reviews[]
 
   @@unique([email])

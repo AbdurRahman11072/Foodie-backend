@@ -38,7 +38,7 @@ model Menu_items {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  order Order_items[]
+  order Orders[]
   reviews Reviews[]
   resturant Restaurants @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
  

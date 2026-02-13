@@ -1,40 +1,33 @@
-enum orderStatus {
-  Pending
-  Delivered
-  Cancelled
+
+
+enum DeliveryStatus {
+  PREPARING
+  READY     
+  DELIVERED   
+}
+enum OrderStatus {
+  CART
+  ORDERD
+  CANCELLED
 }
 
 model Orders {
   id String @id @unique @default(uuid())
   customerId String
   restaurantId String
-  status orderStatus @default(Pending)
-  totalAmount Int
-  orderTime DateTime @default(now())
+  menuItemId String
+  quantity Int
+  status OrderStatus @default(CART)
+  deliveryStatus DeliveryStatus @default(PREPARING)
   deliveryAddress String
-  paymentMethod String 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-
-  order_item Order_items[]
+  paymentMethod String @default("Cash on delivery")
 
   customer User @relation(fields: [customerId], references: [id], onDelete: Cascade)
   restaurant Restaurants @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
-
-  
-}
-
-model Order_items {
-  id String @id @unique @default(uuid())
-  orderId String
-  menuItemId String
-  quantity Int
-  price Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  order Orders @relation(fields: [orderId], references: [id], onDelete: Cascade)
   menuItem Menu_items @relation(fields: [menuItemId], references: [id], onDelete: Cascade)
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
+
+

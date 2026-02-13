@@ -9,7 +9,6 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Orders'
-export type * from './models/Order_items'
 export type * from './models/Restaurants'
 export type * from './models/Menu_items'
 export type * from './models/Reviews'

@@ -385,7 +385,6 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   Orders: 'Orders',
-  Order_items: 'Order_items',
   Restaurants: 'Restaurants',
   Menu_items: 'Menu_items',
   Reviews: 'Reviews',
@@ -408,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "orders" | "order_items" | "restaurants" | "menu_items" | "reviews" | "user" | "session" | "account" | "verification"
+    modelProps: "orders" | "restaurants" | "menu_items" | "reviews" | "user" | "session" | "account" | "verification"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -483,80 +482,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.OrdersCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.OrdersCountAggregateOutputType> | number
-        }
-      }
-    }
-    Order_items: {
-      payload: Prisma.$Order_itemsPayload<ExtArgs>
-      fields: Prisma.Order_itemsFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.Order_itemsFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Order_itemsPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.Order_itemsFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Order_itemsPayload>
-        }
-        findFirst: {
-          args: Prisma.Order_itemsFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Order_itemsPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.Order_itemsFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Order_itemsPayload>
-        }
-        findMany: {
-          args: Prisma.Order_itemsFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Order_itemsPayload>[]
-        }
-        create: {
-          args: Prisma.Order_itemsCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Order_itemsPayload>
-        }
-        createMany: {
-          args: Prisma.Order_itemsCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.Order_itemsCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Order_itemsPayload>[]
-        }
-        delete: {
-          args: Prisma.Order_itemsDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Order_itemsPayload>
-        }
-        update: {
-          args: Prisma.Order_itemsUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Order_itemsPayload>
-        }
-        deleteMany: {
-          args: Prisma.Order_itemsDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.Order_itemsUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.Order_itemsUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Order_itemsPayload>[]
-        }
-        upsert: {
-          args: Prisma.Order_itemsUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$Order_itemsPayload>
-        }
-        aggregate: {
-          args: Prisma.Order_itemsAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateOrder_items>
-        }
-        groupBy: {
-          args: Prisma.Order_itemsGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Order_itemsGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.Order_itemsCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.Order_itemsCountAggregateOutputType> | number
         }
       }
     }
@@ -1121,11 +1046,12 @@ export const OrdersScalarFieldEnum = {
   id: 'id',
   customerId: 'customerId',
   restaurantId: 'restaurantId',
-  status: 'status',
-  totalAmount: 'totalAmount',
-  orderTime: 'orderTime',
+  menuItemId: 'menuItemId',
   deliveryAddress: 'deliveryAddress',
   paymentMethod: 'paymentMethod',
+  quantity: 'quantity',
+  status: 'status',
+  deliveryStatus: 'deliveryStatus',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1133,26 +1059,13 @@ export const OrdersScalarFieldEnum = {
 export type OrdersScalarFieldEnum = (typeof OrdersScalarFieldEnum)[keyof typeof OrdersScalarFieldEnum]
 
 
-export const Order_itemsScalarFieldEnum = {
-  id: 'id',
-  orderId: 'orderId',
-  menuItemId: 'menuItemId',
-  quantity: 'quantity',
-  price: 'price',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type Order_itemsScalarFieldEnum = (typeof Order_itemsScalarFieldEnum)[keyof typeof Order_itemsScalarFieldEnum]
-
-
 export const RestaurantsScalarFieldEnum = {
   id: 'id',
+  ownerId: 'ownerId',
   name: 'name',
   description: 'description',
   address: 'address',
   phone: 'phone',
-  ownerId: 'ownerId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1305,20 +1218,6 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
- * Reference to a field of type 'orderStatus'
- */
-export type EnumorderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'orderStatus'>
-    
-
-
-/**
- * Reference to a field of type 'orderStatus[]'
- */
-export type ListEnumorderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'orderStatus[]'>
-    
-
-
-/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -1329,6 +1228,34 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'OrderStatus'
+ */
+export type EnumOrderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrderStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'OrderStatus[]'
+ */
+export type ListEnumOrderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrderStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'DeliveryStatus'
+ */
+export type EnumDeliveryStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DeliveryStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'DeliveryStatus[]'
+ */
+export type ListEnumDeliveryStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DeliveryStatus[]'>
     
 
 
@@ -1462,7 +1389,6 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   orders?: Prisma.OrdersOmit
-  order_items?: Prisma.Order_itemsOmit
   restaurants?: Prisma.RestaurantsOmit
   menu_items?: Prisma.Menu_itemsOmit
   reviews?: Prisma.ReviewsOmit

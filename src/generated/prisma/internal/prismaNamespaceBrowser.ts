@@ -52,7 +52,6 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Orders: 'Orders',
-  Order_items: 'Order_items',
   Restaurants: 'Restaurants',
   Menu_items: 'Menu_items',
   Reviews: 'Reviews',
@@ -82,11 +81,12 @@ export const OrdersScalarFieldEnum = {
   id: 'id',
   customerId: 'customerId',
   restaurantId: 'restaurantId',
-  status: 'status',
-  totalAmount: 'totalAmount',
-  orderTime: 'orderTime',
+  menuItemId: 'menuItemId',
   deliveryAddress: 'deliveryAddress',
   paymentMethod: 'paymentMethod',
+  quantity: 'quantity',
+  status: 'status',
+  deliveryStatus: 'deliveryStatus',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -94,26 +94,13 @@ export const OrdersScalarFieldEnum = {
 export type OrdersScalarFieldEnum = (typeof OrdersScalarFieldEnum)[keyof typeof OrdersScalarFieldEnum]
 
 
-export const Order_itemsScalarFieldEnum = {
-  id: 'id',
-  orderId: 'orderId',
-  menuItemId: 'menuItemId',
-  quantity: 'quantity',
-  price: 'price',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type Order_itemsScalarFieldEnum = (typeof Order_itemsScalarFieldEnum)[keyof typeof Order_itemsScalarFieldEnum]
-
-
 export const RestaurantsScalarFieldEnum = {
   id: 'id',
+  ownerId: 'ownerId',
   name: 'name',
   description: 'description',
   address: 'address',
   phone: 'phone',
-  ownerId: 'ownerId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

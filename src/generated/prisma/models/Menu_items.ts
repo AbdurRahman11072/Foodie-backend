@@ -304,7 +304,7 @@ export type Menu_itemsWhereInput = {
   servingSize?: Prisma.StringFilter<"Menu_items"> | string
   createdAt?: Prisma.DateTimeFilter<"Menu_items"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Menu_items"> | Date | string
-  order?: Prisma.Order_itemsListRelationFilter
+  order?: Prisma.OrdersListRelationFilter
   reviews?: Prisma.ReviewsListRelationFilter
   resturant?: Prisma.XOR<Prisma.RestaurantsScalarRelationFilter, Prisma.RestaurantsWhereInput>
 }
@@ -326,7 +326,7 @@ export type Menu_itemsOrderByWithRelationInput = {
   servingSize?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  order?: Prisma.Order_itemsOrderByRelationAggregateInput
+  order?: Prisma.OrdersOrderByRelationAggregateInput
   reviews?: Prisma.ReviewsOrderByRelationAggregateInput
   resturant?: Prisma.RestaurantsOrderByWithRelationInput
 }
@@ -351,7 +351,7 @@ export type Menu_itemsWhereUniqueInput = Prisma.AtLeast<{
   servingSize?: Prisma.StringFilter<"Menu_items"> | string
   createdAt?: Prisma.DateTimeFilter<"Menu_items"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Menu_items"> | Date | string
-  order?: Prisma.Order_itemsListRelationFilter
+  order?: Prisma.OrdersListRelationFilter
   reviews?: Prisma.ReviewsListRelationFilter
   resturant?: Prisma.XOR<Prisma.RestaurantsScalarRelationFilter, Prisma.RestaurantsWhereInput>
 }, "id" | "id">
@@ -418,7 +418,7 @@ export type Menu_itemsCreateInput = {
   servingSize: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  order?: Prisma.Order_itemsCreateNestedManyWithoutMenuItemInput
+  order?: Prisma.OrdersCreateNestedManyWithoutMenuItemInput
   reviews?: Prisma.ReviewsCreateNestedManyWithoutMenuItemInput
   resturant: Prisma.RestaurantsCreateNestedOneWithoutMenuItemInput
 }
@@ -440,7 +440,7 @@ export type Menu_itemsUncheckedCreateInput = {
   servingSize: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  order?: Prisma.Order_itemsUncheckedCreateNestedManyWithoutMenuItemInput
+  order?: Prisma.OrdersUncheckedCreateNestedManyWithoutMenuItemInput
   reviews?: Prisma.ReviewsUncheckedCreateNestedManyWithoutMenuItemInput
 }
 
@@ -460,7 +460,7 @@ export type Menu_itemsUpdateInput = {
   servingSize?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  order?: Prisma.Order_itemsUpdateManyWithoutMenuItemNestedInput
+  order?: Prisma.OrdersUpdateManyWithoutMenuItemNestedInput
   reviews?: Prisma.ReviewsUpdateManyWithoutMenuItemNestedInput
   resturant?: Prisma.RestaurantsUpdateOneRequiredWithoutMenuItemNestedInput
 }
@@ -482,7 +482,7 @@ export type Menu_itemsUncheckedUpdateInput = {
   servingSize?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  order?: Prisma.Order_itemsUncheckedUpdateManyWithoutMenuItemNestedInput
+  order?: Prisma.OrdersUncheckedUpdateManyWithoutMenuItemNestedInput
   reviews?: Prisma.ReviewsUncheckedUpdateManyWithoutMenuItemNestedInput
 }
 
@@ -834,7 +834,7 @@ export type Menu_itemsCreateWithoutResturantInput = {
   servingSize: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  order?: Prisma.Order_itemsCreateNestedManyWithoutMenuItemInput
+  order?: Prisma.OrdersCreateNestedManyWithoutMenuItemInput
   reviews?: Prisma.ReviewsCreateNestedManyWithoutMenuItemInput
 }
 
@@ -854,7 +854,7 @@ export type Menu_itemsUncheckedCreateWithoutResturantInput = {
   servingSize: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  order?: Prisma.Order_itemsUncheckedCreateNestedManyWithoutMenuItemInput
+  order?: Prisma.OrdersUncheckedCreateNestedManyWithoutMenuItemInput
   reviews?: Prisma.ReviewsUncheckedCreateNestedManyWithoutMenuItemInput
 }
 
@@ -922,7 +922,7 @@ export type Menu_itemsCreateWithoutReviewsInput = {
   servingSize: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  order?: Prisma.Order_itemsCreateNestedManyWithoutMenuItemInput
+  order?: Prisma.OrdersCreateNestedManyWithoutMenuItemInput
   resturant: Prisma.RestaurantsCreateNestedOneWithoutMenuItemInput
 }
 
@@ -943,7 +943,7 @@ export type Menu_itemsUncheckedCreateWithoutReviewsInput = {
   servingSize: string
   createdAt?: Date | string
   updatedAt?: Date | string
-  order?: Prisma.Order_itemsUncheckedCreateNestedManyWithoutMenuItemInput
+  order?: Prisma.OrdersUncheckedCreateNestedManyWithoutMenuItemInput
 }
 
 export type Menu_itemsCreateOrConnectWithoutReviewsInput = {
@@ -978,7 +978,7 @@ export type Menu_itemsUpdateWithoutReviewsInput = {
   servingSize?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  order?: Prisma.Order_itemsUpdateManyWithoutMenuItemNestedInput
+  order?: Prisma.OrdersUpdateManyWithoutMenuItemNestedInput
   resturant?: Prisma.RestaurantsUpdateOneRequiredWithoutMenuItemNestedInput
 }
 
@@ -999,7 +999,7 @@ export type Menu_itemsUncheckedUpdateWithoutReviewsInput = {
   servingSize?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  order?: Prisma.Order_itemsUncheckedUpdateManyWithoutMenuItemNestedInput
+  order?: Prisma.OrdersUncheckedUpdateManyWithoutMenuItemNestedInput
 }
 
 export type Menu_itemsCreateManyResturantInput = {
@@ -1036,7 +1036,7 @@ export type Menu_itemsUpdateWithoutResturantInput = {
   servingSize?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  order?: Prisma.Order_itemsUpdateManyWithoutMenuItemNestedInput
+  order?: Prisma.OrdersUpdateManyWithoutMenuItemNestedInput
   reviews?: Prisma.ReviewsUpdateManyWithoutMenuItemNestedInput
 }
 
@@ -1056,7 +1056,7 @@ export type Menu_itemsUncheckedUpdateWithoutResturantInput = {
   servingSize?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  order?: Prisma.Order_itemsUncheckedUpdateManyWithoutMenuItemNestedInput
+  order?: Prisma.OrdersUncheckedUpdateManyWithoutMenuItemNestedInput
   reviews?: Prisma.ReviewsUncheckedUpdateManyWithoutMenuItemNestedInput
 }
 
@@ -1107,7 +1107,7 @@ export type Menu_itemsCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.E
  * Menu_itemsCountOutputType without action
  */
 export type Menu_itemsCountOutputTypeCountOrderArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.Order_itemsWhereInput
+  where?: Prisma.OrdersWhereInput
 }
 
 /**
@@ -1217,7 +1217,7 @@ export type Menu_itemsIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 export type $Menu_itemsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Menu_items"
   objects: {
-    order: Prisma.$Order_itemsPayload<ExtArgs>[]
+    order: Prisma.$OrdersPayload<ExtArgs>[]
     reviews: Prisma.$ReviewsPayload<ExtArgs>[]
     resturant: Prisma.$RestaurantsPayload<ExtArgs>
   }
@@ -1632,7 +1632,7 @@ readonly fields: Menu_itemsFieldRefs;
  */
 export interface Prisma__Menu_itemsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  order<T extends Prisma.Menu_items$orderArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Menu_items$orderArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$Order_itemsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  order<T extends Prisma.Menu_items$orderArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Menu_items$orderArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrdersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   reviews<T extends Prisma.Menu_items$reviewsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Menu_items$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   resturant<T extends Prisma.RestaurantsDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RestaurantsDefaultArgs<ExtArgs>>): Prisma.Prisma__RestaurantsClient<runtime.Types.Result.GetResult<Prisma.$RestaurantsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
@@ -2080,23 +2080,23 @@ export type Menu_itemsDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.In
  */
 export type Menu_items$orderArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the Order_items
+   * Select specific fields to fetch from the Orders
    */
-  select?: Prisma.Order_itemsSelect<ExtArgs> | null
+  select?: Prisma.OrdersSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the Order_items
+   * Omit specific fields from the Orders
    */
-  omit?: Prisma.Order_itemsOmit<ExtArgs> | null
+  omit?: Prisma.OrdersOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.Order_itemsInclude<ExtArgs> | null
-  where?: Prisma.Order_itemsWhereInput
-  orderBy?: Prisma.Order_itemsOrderByWithRelationInput | Prisma.Order_itemsOrderByWithRelationInput[]
-  cursor?: Prisma.Order_itemsWhereUniqueInput
+  include?: Prisma.OrdersInclude<ExtArgs> | null
+  where?: Prisma.OrdersWhereInput
+  orderBy?: Prisma.OrdersOrderByWithRelationInput | Prisma.OrdersOrderByWithRelationInput[]
+  cursor?: Prisma.OrdersWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.Order_itemsScalarFieldEnum | Prisma.Order_itemsScalarFieldEnum[]
+  distinct?: Prisma.OrdersScalarFieldEnum | Prisma.OrdersScalarFieldEnum[]
 }
 
 /**

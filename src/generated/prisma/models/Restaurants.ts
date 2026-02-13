@@ -26,33 +26,33 @@ export type AggregateRestaurants = {
 
 export type RestaurantsMinAggregateOutputType = {
   id: string | null
+  ownerId: string | null
   name: string | null
   description: string | null
   address: string | null
   phone: string | null
-  ownerId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
 
 export type RestaurantsMaxAggregateOutputType = {
   id: string | null
+  ownerId: string | null
   name: string | null
   description: string | null
   address: string | null
   phone: string | null
-  ownerId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
 
 export type RestaurantsCountAggregateOutputType = {
   id: number
+  ownerId: number
   name: number
   description: number
   address: number
   phone: number
-  ownerId: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -61,33 +61,33 @@ export type RestaurantsCountAggregateOutputType = {
 
 export type RestaurantsMinAggregateInputType = {
   id?: true
+  ownerId?: true
   name?: true
   description?: true
   address?: true
   phone?: true
-  ownerId?: true
   createdAt?: true
   updatedAt?: true
 }
 
 export type RestaurantsMaxAggregateInputType = {
   id?: true
+  ownerId?: true
   name?: true
   description?: true
   address?: true
   phone?: true
-  ownerId?: true
   createdAt?: true
   updatedAt?: true
 }
 
 export type RestaurantsCountAggregateInputType = {
   id?: true
+  ownerId?: true
   name?: true
   description?: true
   address?: true
   phone?: true
-  ownerId?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -167,11 +167,11 @@ export type RestaurantsGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type RestaurantsGroupByOutputType = {
   id: string
+  ownerId: string
   name: string
   description: string
   address: string
   phone: string
-  ownerId: string
   createdAt: Date
   updatedAt: Date
   _count: RestaurantsCountAggregateOutputType | null
@@ -199,11 +199,11 @@ export type RestaurantsWhereInput = {
   OR?: Prisma.RestaurantsWhereInput[]
   NOT?: Prisma.RestaurantsWhereInput | Prisma.RestaurantsWhereInput[]
   id?: Prisma.StringFilter<"Restaurants"> | string
+  ownerId?: Prisma.StringFilter<"Restaurants"> | string
   name?: Prisma.StringFilter<"Restaurants"> | string
   description?: Prisma.StringFilter<"Restaurants"> | string
   address?: Prisma.StringFilter<"Restaurants"> | string
   phone?: Prisma.StringFilter<"Restaurants"> | string
-  ownerId?: Prisma.StringFilter<"Restaurants"> | string
   createdAt?: Prisma.DateTimeFilter<"Restaurants"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Restaurants"> | Date | string
   menuItem?: Prisma.Menu_itemsListRelationFilter
@@ -214,11 +214,11 @@ export type RestaurantsWhereInput = {
 
 export type RestaurantsOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  ownerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
-  ownerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   menuItem?: Prisma.Menu_itemsOrderByRelationAggregateInput
@@ -247,11 +247,11 @@ export type RestaurantsWhereUniqueInput = Prisma.AtLeast<{
 
 export type RestaurantsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  ownerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
-  ownerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.RestaurantsCountOrderByAggregateInput
@@ -264,11 +264,11 @@ export type RestaurantsScalarWhereWithAggregatesInput = {
   OR?: Prisma.RestaurantsScalarWhereWithAggregatesInput[]
   NOT?: Prisma.RestaurantsScalarWhereWithAggregatesInput | Prisma.RestaurantsScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Restaurants"> | string
+  ownerId?: Prisma.StringWithAggregatesFilter<"Restaurants"> | string
   name?: Prisma.StringWithAggregatesFilter<"Restaurants"> | string
   description?: Prisma.StringWithAggregatesFilter<"Restaurants"> | string
   address?: Prisma.StringWithAggregatesFilter<"Restaurants"> | string
   phone?: Prisma.StringWithAggregatesFilter<"Restaurants"> | string
-  ownerId?: Prisma.StringWithAggregatesFilter<"Restaurants"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Restaurants"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Restaurants"> | Date | string
 }
@@ -289,11 +289,11 @@ export type RestaurantsCreateInput = {
 
 export type RestaurantsUncheckedCreateInput = {
   id?: string
+  ownerId: string
   name: string
   description: string
   address: string
   phone: string
-  ownerId: string
   createdAt?: Date | string
   updatedAt?: Date | string
   menuItem?: Prisma.Menu_itemsUncheckedCreateNestedManyWithoutResturantInput
@@ -317,11 +317,11 @@ export type RestaurantsUpdateInput = {
 
 export type RestaurantsUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   menuItem?: Prisma.Menu_itemsUncheckedUpdateManyWithoutResturantNestedInput
@@ -331,11 +331,11 @@ export type RestaurantsUncheckedUpdateInput = {
 
 export type RestaurantsCreateManyInput = {
   id?: string
+  ownerId: string
   name: string
   description: string
   address: string
   phone: string
-  ownerId: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -352,11 +352,11 @@ export type RestaurantsUpdateManyMutationInput = {
 
 export type RestaurantsUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -368,33 +368,33 @@ export type RestaurantsScalarRelationFilter = {
 
 export type RestaurantsCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  ownerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
-  ownerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type RestaurantsMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  ownerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
-  ownerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type RestaurantsMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  ownerId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   description?: Prisma.SortOrder
   address?: Prisma.SortOrder
   phone?: Prisma.SortOrder
-  ownerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -493,11 +493,11 @@ export type RestaurantsCreateWithoutOrderInput = {
 
 export type RestaurantsUncheckedCreateWithoutOrderInput = {
   id?: string
+  ownerId: string
   name: string
   description: string
   address: string
   phone: string
-  ownerId: string
   createdAt?: Date | string
   updatedAt?: Date | string
   menuItem?: Prisma.Menu_itemsUncheckedCreateNestedManyWithoutResturantInput
@@ -535,11 +535,11 @@ export type RestaurantsUpdateWithoutOrderInput = {
 
 export type RestaurantsUncheckedUpdateWithoutOrderInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   menuItem?: Prisma.Menu_itemsUncheckedUpdateManyWithoutResturantNestedInput
@@ -561,11 +561,11 @@ export type RestaurantsCreateWithoutMenuItemInput = {
 
 export type RestaurantsUncheckedCreateWithoutMenuItemInput = {
   id?: string
+  ownerId: string
   name: string
   description: string
   address: string
   phone: string
-  ownerId: string
   createdAt?: Date | string
   updatedAt?: Date | string
   order?: Prisma.OrdersUncheckedCreateNestedManyWithoutRestaurantInput
@@ -603,11 +603,11 @@ export type RestaurantsUpdateWithoutMenuItemInput = {
 
 export type RestaurantsUncheckedUpdateWithoutMenuItemInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   order?: Prisma.OrdersUncheckedUpdateManyWithoutRestaurantNestedInput
@@ -629,11 +629,11 @@ export type RestaurantsCreateWithoutReviewsInput = {
 
 export type RestaurantsUncheckedCreateWithoutReviewsInput = {
   id?: string
+  ownerId: string
   name: string
   description: string
   address: string
   phone: string
-  ownerId: string
   createdAt?: Date | string
   updatedAt?: Date | string
   menuItem?: Prisma.Menu_itemsUncheckedCreateNestedManyWithoutResturantInput
@@ -671,11 +671,11 @@ export type RestaurantsUpdateWithoutReviewsInput = {
 
 export type RestaurantsUncheckedUpdateWithoutReviewsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   phone?: Prisma.StringFieldUpdateOperationsInput | string
-  ownerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   menuItem?: Prisma.Menu_itemsUncheckedUpdateManyWithoutResturantNestedInput
@@ -801,11 +801,11 @@ export type RestaurantsCountOutputTypeCountReviewsArgs<ExtArgs extends runtime.T
 
 export type RestaurantsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  ownerId?: boolean
   name?: boolean
   description?: boolean
   address?: boolean
   phone?: boolean
-  ownerId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   menuItem?: boolean | Prisma.Restaurants$menuItemArgs<ExtArgs>
@@ -817,11 +817,11 @@ export type RestaurantsSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 
 export type RestaurantsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  ownerId?: boolean
   name?: boolean
   description?: boolean
   address?: boolean
   phone?: boolean
-  ownerId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -829,11 +829,11 @@ export type RestaurantsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type RestaurantsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  ownerId?: boolean
   name?: boolean
   description?: boolean
   address?: boolean
   phone?: boolean
-  ownerId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -841,16 +841,16 @@ export type RestaurantsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type RestaurantsSelectScalar = {
   id?: boolean
+  ownerId?: boolean
   name?: boolean
   description?: boolean
   address?: boolean
   phone?: boolean
-  ownerId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type RestaurantsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "address" | "phone" | "ownerId" | "createdAt" | "updatedAt", ExtArgs["result"]["restaurants"]>
+export type RestaurantsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "ownerId" | "name" | "description" | "address" | "phone" | "createdAt" | "updatedAt", ExtArgs["result"]["restaurants"]>
 export type RestaurantsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   menuItem?: boolean | Prisma.Restaurants$menuItemArgs<ExtArgs>
   order?: boolean | Prisma.Restaurants$orderArgs<ExtArgs>
@@ -875,11 +875,11 @@ export type $RestaurantsPayload<ExtArgs extends runtime.Types.Extensions.Interna
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
+    ownerId: string
     name: string
     description: string
     address: string
     phone: string
-    ownerId: string
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["restaurants"]>
@@ -1310,11 +1310,11 @@ export interface Prisma__RestaurantsClient<T, Null = never, ExtArgs extends runt
  */
 export interface RestaurantsFieldRefs {
   readonly id: Prisma.FieldRef<"Restaurants", 'String'>
+  readonly ownerId: Prisma.FieldRef<"Restaurants", 'String'>
   readonly name: Prisma.FieldRef<"Restaurants", 'String'>
   readonly description: Prisma.FieldRef<"Restaurants", 'String'>
   readonly address: Prisma.FieldRef<"Restaurants", 'String'>
   readonly phone: Prisma.FieldRef<"Restaurants", 'String'>
-  readonly ownerId: Prisma.FieldRef<"Restaurants", 'String'>
   readonly createdAt: Prisma.FieldRef<"Restaurants", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Restaurants", 'DateTime'>
 }
