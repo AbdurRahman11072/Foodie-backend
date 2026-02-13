@@ -78,8 +78,34 @@ const getRestaurantById = asyncHandler(async (req, res) => {
   });
 });
 
+const updataRestaurantInfo = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const data = req.body;
+  const restaurantExist = await prisma.restaurants.findFirst({
+    where: { id: id as string },
+  });
+
+  if (!restaurantExist)
+    throw new customError(
+      "Failed to update restaurant information. Because restaurat doesn't exist",
+      httpStatus.BAD_REQUEST,
+    );
+
+  const result = await prisma.restaurants.update({
+    where: { id: id as string },
+    data: data,
+  });
+
+  res.status(httpStatus.OK).json({
+    success: true,
+    message: "Information updated successfully",
+    data: result,
+  });
+});
+
 export const RestaurantController = {
   getAllRestaurants,
   getRestaurantById,
   createRestaurants,
+  updataRestaurantInfo,
 };
