@@ -17,7 +17,7 @@ model Orders {
   restaurantId String
   menuItemId String
   quantity Int
-  status OrderStatus @default(CART)
+  status  OrderStatus @default(CART) 
   deliveryStatus DeliveryStatus @default(PREPARING)
   deliveryAddress String
   paymentMethod String @default("Cash on delivery")

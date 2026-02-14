@@ -6,6 +6,9 @@ model Restaurants {
   description String
   address     String
   phone       String
+  deliveryTime String
+  openingTime String
+  offday String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

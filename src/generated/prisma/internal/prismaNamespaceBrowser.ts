@@ -82,11 +82,11 @@ export const OrdersScalarFieldEnum = {
   customerId: 'customerId',
   restaurantId: 'restaurantId',
   menuItemId: 'menuItemId',
-  deliveryAddress: 'deliveryAddress',
-  paymentMethod: 'paymentMethod',
   quantity: 'quantity',
   status: 'status',
   deliveryStatus: 'deliveryStatus',
+  deliveryAddress: 'deliveryAddress',
+  paymentMethod: 'paymentMethod',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -101,6 +101,9 @@ export const RestaurantsScalarFieldEnum = {
   description: 'description',
   address: 'address',
   phone: 'phone',
+  deliveryTime: 'deliveryTime',
+  openingTime: 'openingTime',
+  offday: 'offday',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

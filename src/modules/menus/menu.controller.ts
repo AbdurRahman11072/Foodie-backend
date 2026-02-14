@@ -6,7 +6,11 @@ import { prisma } from "../../lib/prisma";
 
 const getAllMenu_items = async (req: Request, res: Response) => {
   try {
-    const result = await prisma.menu_items.findMany();
+    const result = await prisma.menu_items.findMany({
+      include: {
+        order: true,
+      },
+    });
     if (result.length === 0) {
       return res.status(httpStatus.OK).json({
         success: true,

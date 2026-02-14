@@ -45,6 +45,9 @@ const createRestaurants = asyncHandler(async (req, res) => {
       description: data.description,
       address: data.address,
       phone: data.phone,
+      deliveryTime: data.deliveryTime,
+      openingTime: data.openingTime,
+      offday: data.offday,
       user: {
         connect: {
           id: data.ownerId,

@@ -6,7 +6,7 @@ const router = Router();
 router.get("/", orderController.getAllOrders);
 router.get("/:id", orderController.getOrdersById);
 
-router.post("/create-order", orderController.createOrders);
-router.put("/update-order-info/:id", orderController.updataOredertInfo);
+router.post("/", orderController.createOrders);
+router.put("/:id", orderController.updataOredertInfo);
 
 export const ordersRoutes: Router = router;

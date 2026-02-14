@@ -1,16 +1,20 @@
 -- CreateEnum
-CREATE TYPE "orderStatus" AS ENUM ('Pending', 'Delivered', 'Cancelled');
+CREATE TYPE "DeliveryStatus" AS ENUM ('PREPARING', 'READY', 'DELIVERED');
+
+-- CreateEnum
+CREATE TYPE "OrderStatus" AS ENUM ('CART', 'ORDERD', 'CANCELLED');
 
 -- CreateTable
 CREATE TABLE "Orders" (
     "id" TEXT NOT NULL,
     "customerId" TEXT NOT NULL,
     "restaurantId" TEXT NOT NULL,
-    "status" "orderStatus" NOT NULL DEFAULT 'Pending',
-    "totalAmount" INTEGER NOT NULL,
-    "orderTime" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "menuItemId" TEXT NOT NULL,
+    "quantity" INTEGER NOT NULL,
+    "status" "OrderStatus" NOT NULL DEFAULT 'CART',
+    "deliveryStatus" "DeliveryStatus" NOT NULL DEFAULT 'PREPARING',
     "deliveryAddress" TEXT NOT NULL,
-    "paymentMethod" TEXT NOT NULL,
+    "paymentMethod" TEXT NOT NULL DEFAULT 'Cash on delivery',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -18,26 +22,16 @@ CREATE TABLE "Orders" (
 );
 
 -- CreateTable
-CREATE TABLE "Order_items" (
-    "id" TEXT NOT NULL,
-    "orderId" TEXT NOT NULL,
-    "menuItemId" TEXT NOT NULL,
-    "quantity" INTEGER NOT NULL,
-    "price" INTEGER NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
-
-    CONSTRAINT "Order_items_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
 CREATE TABLE "Restaurants" (
     "id" TEXT NOT NULL,
+    "ownerId" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "address" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
-    "ownerId" TEXT NOT NULL,
+    "deliveryTime" TEXT NOT NULL,
+    "openingTime" TEXT NOT NULL,
+    "offday" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -45,26 +39,21 @@ CREATE TABLE "Restaurants" (
 );
 
 -- CreateTable
-CREATE TABLE "Menus" (
-    "id" TEXT NOT NULL,
-    "restaurantId" TEXT NOT NULL,
-    "title" TEXT NOT NULL,
-    "description" TEXT NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
-
-    CONSTRAINT "Menus_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
 CREATE TABLE "Menu_items" (
     "id" TEXT NOT NULL,
-    "menuid" TEXT NOT NULL,
+    "restaurantId" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "price" INTEGER NOT NULL,
+    "rating" INTEGER NOT NULL,
+    "cuisine" TEXT NOT NULL,
     "imageUrl" TEXT NOT NULL,
     "available" BOOLEAN NOT NULL,
+    "ingredients" TEXT[],
+    "deliveryTime" TEXT NOT NULL,
+    "allergens" TEXT[],
+    "calories" INTEGER NOT NULL,
+    "servingSize" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -94,9 +83,12 @@ CREATE TABLE "user" (
     "image" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
-    "roles" TEXT NOT NULL DEFAULT 'Customer',
+    "role" TEXT,
+    "banned" BOOLEAN DEFAULT false,
+    "banReason" TEXT,
+    "banExpires" TIMESTAMP(3),
     "phoneNumber" TEXT,
-    "address" TEXT NOT NULL,
+    "address" TEXT,
 
     CONSTRAINT "user_pkey" PRIMARY KEY ("id")
 );
@@ -150,19 +142,10 @@ CREATE TABLE "verification" (
 CREATE UNIQUE INDEX "Orders_id_key" ON "Orders"("id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Order_items_id_key" ON "Order_items"("id");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Restaurants_id_key" ON "Restaurants"("id");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Restaurants_ownerId_key" ON "Restaurants"("ownerId");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Menus_id_key" ON "Menus"("id");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Menus_restaurantId_key" ON "Menus"("restaurantId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Menu_items_id_key" ON "Menu_items"("id");
@@ -192,19 +175,13 @@ ALTER TABLE "Orders" ADD CONSTRAINT "Orders_customerId_fkey" FOREIGN KEY ("custo
 ALTER TABLE "Orders" ADD CONSTRAINT "Orders_restaurantId_fkey" FOREIGN KEY ("restaurantId") REFERENCES "Restaurants"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Order_items" ADD CONSTRAINT "Order_items_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Orders"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Order_items" ADD CONSTRAINT "Order_items_menuItemId_fkey" FOREIGN KEY ("menuItemId") REFERENCES "Menu_items"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Orders" ADD CONSTRAINT "Orders_menuItemId_fkey" FOREIGN KEY ("menuItemId") REFERENCES "Menu_items"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Restaurants" ADD CONSTRAINT "Restaurants_ownerId_fkey" FOREIGN KEY ("ownerId") REFERENCES "user"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Menus" ADD CONSTRAINT "Menus_restaurantId_fkey" FOREIGN KEY ("restaurantId") REFERENCES "Restaurants"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Menu_items" ADD CONSTRAINT "Menu_items_menuid_fkey" FOREIGN KEY ("menuid") REFERENCES "Menus"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Menu_items" ADD CONSTRAINT "Menu_items_restaurantId_fkey" FOREIGN KEY ("restaurantId") REFERENCES "Restaurants"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Reviews" ADD CONSTRAINT "Reviews_customerId_fkey" FOREIGN KEY ("customerId") REFERENCES "user"("id") ON DELETE CASCADE ON UPDATE CASCADE;
