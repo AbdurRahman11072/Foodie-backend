@@ -107,6 +107,9 @@ const getRestaurantById = asyncHandler(async (req, res) => {
 
   const result = await prisma.restaurants.findUnique({
     where: { ownerId: id as string },
+    include: {
+      menuItem: true,
+    },
   });
   if (!result)
     throw new customError(

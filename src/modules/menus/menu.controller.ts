@@ -85,6 +85,7 @@ const getMenu_itemsById = asyncHandler(async (req, res) => {
           deliveryTime: true,
         },
       },
+      reviews: true,
     },
   });
   if (!result)
