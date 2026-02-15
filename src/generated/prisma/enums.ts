@@ -19,7 +19,6 @@ export type DeliveryStatus = (typeof DeliveryStatus)[keyof typeof DeliveryStatus
 
 
 export const OrderStatus = {
-  CART: 'CART',
   ORDERD: 'ORDERD',
   CANCELLED: 'CANCELLED'
 } as const

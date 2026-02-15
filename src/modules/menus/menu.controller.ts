@@ -1,33 +1,39 @@
-import { Request, Response } from "express";
-import httpStatus from "http-status-codes";
-import customError from "../../error";
-import asyncHandler from "../../lib/asyncRequestHandler";
-import { prisma } from "../../lib/prisma";
+import { Request, Response } from 'express';
+import httpStatus from 'http-status-codes';
+import customError from '../../error';
+import asyncHandler from '../../lib/asyncRequestHandler';
+import { prisma } from '../../lib/prisma';
 
 const getAllMenu_items = async (req: Request, res: Response) => {
   try {
     const result = await prisma.menu_items.findMany({
-      include: {
-        order: true,
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        price: true,
+        rating: true,
+        imageUrl: true,
+        cuisine: true,
       },
     });
     if (result.length === 0) {
       return res.status(httpStatus.OK).json({
         success: true,
-        message: "There is no items",
+        message: 'There is no items',
         data: null,
       });
     }
 
     res.status(httpStatus.OK).json({
       success: true,
-      message: "All menu_items",
+      message: 'All menu_items',
       data: result,
     });
   } catch (error) {
     res.status(httpStatus.NOT_FOUND).json({
       success: false,
-      message: "Menu_items not found",
+      message: 'Menu_items not found',
       data: error,
     });
   }
@@ -61,7 +67,7 @@ const createMenuItem = asyncHandler(async (req, res) => {
 
   res.status(httpStatus.OK).json({
     success: true,
-    message: "Item has been added",
+    message: 'Item has been added',
     data: result,
   });
 });
@@ -71,15 +77,24 @@ const getMenu_itemsById = asyncHandler(async (req, res) => {
 
   const result = await prisma.menu_items.findFirst({
     where: { id: id as string },
+    include: {
+      resturant: {
+        select: {
+          name: true,
+          rating: true,
+          deliveryTime: true,
+        },
+      },
+    },
   });
   if (!result)
     throw new customError(
-      "There is no items made with the Id",
-      httpStatus.NOT_FOUND,
+      'There is no items made with the Id',
+      httpStatus.NOT_FOUND
     );
   res.status(httpStatus.OK).json({
     success: true,
-    message: "Items is found",
+    message: 'Items is found',
     data: result,
   });
 });
@@ -94,7 +109,7 @@ const updataMenuItemInfo = asyncHandler(async (req, res) => {
   if (!restaurantExist)
     throw new customError(
       "Failed to update items information. Because items doesn't exist",
-      httpStatus.BAD_REQUEST,
+      httpStatus.BAD_REQUEST
     );
 
   const result = await prisma.menu_items.update({
@@ -104,7 +119,7 @@ const updataMenuItemInfo = asyncHandler(async (req, res) => {
 
   res.status(httpStatus.OK).json({
     success: true,
-    message: "Items updated successfully",
+    message: 'Items updated successfully',
     data: result,
   });
 });

@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Restaurants" ALTER COLUMN "description" DROP NOT NULL,
+ALTER COLUMN "offday" DROP NOT NULL,
+ALTER COLUMN "image" DROP NOT NULL;

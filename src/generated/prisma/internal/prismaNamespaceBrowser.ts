@@ -99,6 +99,8 @@ export const RestaurantsScalarFieldEnum = {
   ownerId: 'ownerId',
   name: 'name',
   description: 'description',
+  image: 'image',
+  rating: 'rating',
   address: 'address',
   phone: 'phone',
   deliveryTime: 'deliveryTime',

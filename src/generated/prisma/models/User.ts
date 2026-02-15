@@ -563,10 +563,6 @@ export type UserUpdateOneRequiredWithoutReviewNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutReviewInput, Prisma.UserUpdateWithoutReviewInput>, Prisma.UserUncheckedUpdateWithoutReviewInput>
 }
 
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null
-}
-
 export type NullableBoolFieldUpdateOperationsInput = {
   set?: boolean | null
 }
